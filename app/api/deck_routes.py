@@ -27,6 +27,8 @@ def cat_decks(category):
 @deck_routes.route("/user/<int:id>")
 @login_required
 def user_decks(id):
-    decks = Deck.query.filter_by(userId=f"{current_user.id}").all()
-    
-    return {"decks": [deck.to_dict() for deck in decks]}
+    if id == current_user.id:
+        decks = Deck.query.filter_by(userId=f"{current_user.id}").all()
+        return {"decks": [deck.to_dict() for deck in decks]}
+
+    return {"errors": ["Unauthorized"]}
