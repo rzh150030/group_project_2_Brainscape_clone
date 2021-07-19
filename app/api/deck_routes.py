@@ -32,3 +32,10 @@ def user_decks(id):
         return {"decks": [deck.to_dict() for deck in decks]}
 
     return {"errors": ["Unauthorized"]}
+
+
+# Create deck
+@deck_routes.route("/", methods=["POST"])
+@login_required
+def create_deck():
+    
