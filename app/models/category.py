@@ -10,6 +10,3 @@ class Category(db.Model):
 
     deck = db.relationship('Deck', back_populates='category')
 
-    @property
-    def name(self):
-        return self.name

@@ -12,10 +12,3 @@ class Card(db.Model):
 
     deck = db.relationship('Deck', back_populates='card')
 
-    @property
-    def question(self):
-        return self.question
-
-    @property
-    def answer(self):
-        return self.answer
