@@ -7,8 +7,8 @@ class Card(db.Model):
     question = db.Column(db.String(20), nullable=False)
     answer = db.Column(db.String(20), nullable=False)
     deckId = db.Column(db.Integer, db.ForeignKey('decks.id'), nullable=False)
-    created_at = db.Column(db.DateTime, server_default=db.func.now())
-    updated_at = db.Column(db.DateTime, server_default=db.func.now(), server_onupdate=db.func.now())
+    # created_at = db.Column(db.DateTime, server_default=db.func.now())
+    # updated_at = db.Column(db.DateTime, server_default=db.func.now(), server_onupdate=db.func.now())
 
     deck = db.relationship('Deck', back_populates='card')
 
