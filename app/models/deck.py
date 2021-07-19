@@ -12,6 +12,7 @@ class Deck(db.Model):
 
     category = db.relationship('Category', back_populates='deck')
     card = db.relationship('Card', back_populates='deck')
+    user = db.relationship("User", back_populates="deck")
 
     @property
     def title(self):

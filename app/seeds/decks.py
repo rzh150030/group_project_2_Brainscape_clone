@@ -13,6 +13,6 @@ def seed_decks():
     db.session.commit()
 
 
-def decks_undo():
+def undo_decks():
     db.session.execute('TRUNCATE decks RESTART IDENTITY CASCADE;')
     db.session.commit()
