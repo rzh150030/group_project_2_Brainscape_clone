@@ -14,7 +14,21 @@ class Deck(db.Model):
     card = db.relationship('Card', back_populates='deck')
     user = db.relationship("User", back_populates="deck")
 
-    
+    @property
+    def categoryId(self):
+        return self.categoryId
+
+    @categoryId.setter
+    def categoryId(self, id):
+        self.categoryId = id
+
+    @property
+    def userId(self):
+        return self.userId
+
+    @userId.setter
+    def userId(self, id):
+        self.userId = id
 
     def to_dict(self):
         return {
