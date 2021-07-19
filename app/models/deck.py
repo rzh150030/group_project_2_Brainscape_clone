@@ -12,6 +12,14 @@ class Deck(db.Model):
 
     category = db.relationship('Category', back_populates='deck')
     card = db.relationship('Card', back_populates='deck')
+
     @property
     def title(self):
         return self.title
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'title': self.categoryId,
+            'userId': self.userId
+        }
