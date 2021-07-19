@@ -1,0 +1,10 @@
+#logo-div {
+  display: flex;
+  align-items: center;
+}
+
+#logo-div img{
+  max-height: 100px;
+  max-width: 100px;
+  margin-left: 80px;
+}

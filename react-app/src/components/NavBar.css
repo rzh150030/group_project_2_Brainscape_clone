@@ -3,16 +3,49 @@ nav {
   width: 100%;
   grid-template-areas:
     "navbar1 navbar2 navbar3";
+  grid-auto-columns: minmax(300px,33vw);
+  background-color: #e6e6e6;
+  height:100px;
 }
 
 ul {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
+  align-items: center;
   list-style: none;
-  padding: 0;
+  padding: 0 50px;
   grid-area: navbar3;
 }
 
 li {
-  margin: 0 10px;
+  margin: 0 40px;
+}
+
+#search-bar {
+  grid-area: navbar2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+#search-bar input{
+  width: 50%;
+  border-radius: 25px;
+}
+
+#search-bar button {
+  margin-left: 10px;
+}
+
+.active button{
+  background-color: #e89b64;
+  /* border-radius: 25px; */
+}
+
+.nav-button {
+  width: 75px;
+  cursor: pointer;
+  border: none;
+  border-radius:15px;
 }
