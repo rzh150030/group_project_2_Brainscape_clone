@@ -1,0 +1,9 @@
+#deck-title-div h2 {
+  color: white;
+}
+
+#deck-title-div {
+  display: flex;
+  justify-content:center;
+  width: 100%;
+}

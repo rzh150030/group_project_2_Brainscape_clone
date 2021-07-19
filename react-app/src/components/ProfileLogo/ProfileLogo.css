@@ -1,0 +1,17 @@
+.fas.fa-user-circle{
+  font-size: 100px;
+  color: white;
+}
+
+#profile-logo-div, #profile-logo-username{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  color: white;
+}
+
+#profile-logo-button {
+  margin-top:20px;
+  background-color: transparent;
+  border: none;
+}

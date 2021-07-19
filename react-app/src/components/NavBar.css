@@ -34,13 +34,20 @@ li {
   border-radius: 25px;
 }
 
+
 #search-bar button {
   margin-left: 10px;
+  width: 75px;
+  cursor: pointer;
+  border: none;
+  border-radius:15px;
+  background-color: #541ae8;
+  color: white;
+  letter-spacing: 1px;
 }
-
 .active button{
   background-color: #e89b64;
-  /* border-radius: 25px; */
+
 }
 
 .nav-button {
@@ -48,4 +55,5 @@ li {
   cursor: pointer;
   border: none;
   border-radius:15px;
+  letter-spacing: 1px;
 }
