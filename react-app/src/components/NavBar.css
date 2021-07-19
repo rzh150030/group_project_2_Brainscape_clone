@@ -1,11 +1,16 @@
 nav {
+  display: grid;
   width: 100%;
+  grid-template-areas:
+    "navbar1 navbar2 navbar3";
 }
 
 ul {
   display: flex;
+  justify-content: center;
   list-style: none;
   padding: 0;
+  grid-area: navbar3;
 }
 
 li {
