@@ -71,5 +71,20 @@ def delete_deck(id):
         return deck.to_dict()
     return {"errors": ["Unauthorized"]}
 
-    
 
+# Frontend sends data, data should contain cards that exists when saved
+# On backend route, compare and contrast database data to the ones given by the frontend
+## Data card id given that does not exist on the database is a card to create
+## Data card id that exist in database but not on the given data needs to be deleted
+## Data card id that exist in database and data given and data fields are different, update the changed data
+# Send back some response when done
+
+'''
+route("/<int:id>")
+def update_deck():
+    cards = Deck.query.get(id).to_dict_with_cards()
+    form["csrf_token"].data = request.cookies["csrf_token"]
+    data = data given by redux store
+
+    
+'''

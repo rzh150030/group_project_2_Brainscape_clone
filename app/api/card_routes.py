@@ -5,6 +5,7 @@ from app.forms import CardForm
 
 card_routes = Blueprint('cards', __name__)
 
+
 def validation_errors_to_error_messages(validation_errors):
     """
     Simple function that turns the WTForms validation errors into a simple list
@@ -15,12 +16,14 @@ def validation_errors_to_error_messages(validation_errors):
             errorMessages.append(f'{field} : {error}')
     return errorMessages
 
+
 # Grab all of the cards belonging to this deck
 @card_routes.route('/deck/<int:id>')
 def cards(id):
     deck = Deck.query.get(id)
     return deck.to_dict_with_cards()
 
+# Create card
 @card_routes.route('/deck/<int:id>/create', methods=["POST"])
 @login_required
 def create_card(id):
@@ -36,11 +39,8 @@ def create_card(id):
 
     return {"errors": validation_errors_to_error_messages(form.errors)}
 
-@card_routes.route('/deck/<int:id>/')
-
-
-
-
-
-
-
+# Delete card
+@card_routes.route('/deck/<int:id>/', methods=["DELETE"])
+@login_required
+def delete_card(id):
+    card = Card.query.get(id)
