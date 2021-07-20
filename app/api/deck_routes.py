@@ -29,7 +29,7 @@ def decks(id):
 @deck_routes.route("/category/<string:category>")
 def cat_decks(category):
     found_category = Category.query.filter_by(name=f"{category}").first()
-    decks = Deck.query.filter_by(categoryId=f"{found_category.id}").all()
+    decks = Deck.query.filter_by(_categoryId=f"{found_category.id}").all()
 
     return {"decks": [deck.to_dict() for deck in decks]}
 
@@ -39,7 +39,7 @@ def cat_decks(category):
 @login_required
 def user_decks(id):
     if id == current_user.id:
-        decks = Deck.query.filter_by(userId=f"{current_user.id}").all()
+        decks = Deck.query.filter_by(_userId=f"{current_user.id}").all()
         return {"decks": [deck.to_dict() for deck in decks]}
 
     return {"errors": ["Unauthorized"]}
@@ -54,7 +54,7 @@ def create_deck():
     if form.validate_on_submit():
         deck = Deck()
         form.populate_obj(deck)
-        
+
         db.session.add(deck)
         db.session.commit()
         return deck.to_dict()
