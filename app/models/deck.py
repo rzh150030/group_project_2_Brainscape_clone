@@ -27,4 +27,4 @@ class Deck(db.Model):
         }
 
     def to_dict_with_cards(self):
-        return {card.id: {card.to_dict()} for card in self.cards}
+        return {card.id: card.to_dict() for card in self.cards}

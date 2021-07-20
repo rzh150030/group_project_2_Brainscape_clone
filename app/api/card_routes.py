@@ -23,6 +23,7 @@ def cards(id):
     deck = Deck.query.get(id)
     return deck.to_dict_with_cards()
 
+
 # Create card
 @card_routes.route('/deck/<int:id>/create', methods=["POST"])
 @login_required
@@ -38,6 +39,7 @@ def create_card(id):
         return card.to_dict()
 
     return {"errors": validation_errors_to_error_messages(form.errors)}
+
 
 # Delete card
 @card_routes.route('/deck/<int:id>/', methods=["DELETE"])

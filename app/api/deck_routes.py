@@ -100,27 +100,29 @@ def update_deck():
     for key in cards_in_table.keys():
         delete card in table for each key
 '''
+
+
 @deck_routes.route("/<int:id>", methods=["PATCH"])
-@login_required
 def update_deck(id):
     deck = Deck.query.get(id)
     cards_in_table = deck.to_dict_with_cards()
     form = CardForm()
-    form["csrf_token"].data = request.cookies["csrf_token"]
-    data = jsonify(request.json)
+    # form["csrf_token"].data = request.cookies["csrf_token"]
+    data = request.json
+    print("FFFFF ===>" + str(data["cards"]))
+    print("FFFFF ===>" + str(cards_in_table))
 
-    for card in data:
-        if card.id == 0:
-            card = Card()
-            form.populate_obj(card)
+    for card in data["cards"]:
+        if int(card["id"]) == 0:
+            card = Card(question=card["question"], answer=card["answer"])
             deck.cards.append(card)
             db.session.add(card)
             db.session.commit()
-        if cards_in_table[card.id]:
-            card = Card.query.get(card.id)
-            card.question = card.question
-            card.answer = card.answer
-            del cards_in_table[card.id]
+        if cards_in_table[int(card["id"])]:
+            card_from_table = Card.query.get(int(card["id"]))
+            card_from_table.question = card["question"]
+            card_from_table.answer = card["answer"]
+            del cards_in_table[int(card["id"])]
             db.session.commit()
 
     for key in cards_in_table.keys():
