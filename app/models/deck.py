@@ -28,3 +28,8 @@ class Deck(db.Model):
             'title': self.title,
             'category': self.categoryId,
         }
+    
+    def to_dict_with_cards(self):
+        return {
+            'cards': [card.to_dict() for card in self.cards]
+        }

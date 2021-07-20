@@ -45,7 +45,7 @@ def user_decks(id):
 
 
 # Create deck
-@deck_routes.route("/", methods=["POST"])
+@deck_routes.route("/create", methods=["POST"])
 @login_required
 def create_deck():
     form = DeckForm()
