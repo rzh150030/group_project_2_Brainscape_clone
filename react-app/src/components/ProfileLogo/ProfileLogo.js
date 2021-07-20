@@ -1,6 +1,9 @@
 import "./ProfileLogo.css";
+import { useSelector } from "react-redux";
 
 const ProfileLogo = () => {
+  const sessionUser = useSelector((state) => state.session.user);
+
   return (
     <>
       <div id="profile-logo-div">
@@ -8,9 +11,17 @@ const ProfileLogo = () => {
           <i className="fas fa-user-circle"></i>
         </button>
       </div>
-      <div id="profile-logo-username">
-        <p>Username here</p>
-      </div>
+      <>
+        {sessionUser ? (
+          <div id="profile-logo-username">
+            <p>{sessionUser.username}</p>
+          </div>
+        ) : (
+          <div id="profile-logo-username">
+            <p>Guest</p>
+          </div>
+        )}
+      </>
     </>
   );
 };

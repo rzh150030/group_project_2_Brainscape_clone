@@ -8,7 +8,7 @@
   "langlogo langname quote"
   "langlogo studybutton quote"
   ;
-  border-bottom: 1px solid black;
+  /* border-bottom: 1px solid black; */
 }
 
 #language-logo-div {
@@ -28,4 +28,15 @@
 
 #quote-div {
   grid-area: quote;
+}
+
+#study-deck-button-div button{
+  background-color: rgb(94, 212, 16);
+  width: 175px;
+  cursor: pointer;
+  border: none;
+  border-radius:15px;
+  letter-spacing: 1px;
+  font-size: 15px;
+  padding: 5px 5px;
 }

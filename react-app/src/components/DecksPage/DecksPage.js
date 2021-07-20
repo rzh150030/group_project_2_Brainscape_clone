@@ -7,7 +7,6 @@ import { useSelector } from 'react-redux';
 export const DecksPage = () => {
   const sessionUser = useSelector((state) => state.session.user)
 
-  console.log(sessionUser);
   return (
     <>
       <div id="decks-page-grid-container">

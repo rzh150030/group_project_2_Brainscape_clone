@@ -7,6 +7,7 @@ nav {
   background-color: #e6e6e6;
   height:100px;
   position: fixed;
+  top: 0;
 }
 
 ul {
@@ -30,21 +31,17 @@ li {
   height: 100%;
 }
 
-#search-bar input{
-  width: 50%;
-  border-radius: 25px;
-}
-
-
 #search-bar button {
+  font-size: 15px;
+  background-color: #1B8BBF;
   margin-left: 10px;
   width: 75px;
   cursor: pointer;
   border: none;
   border-radius:15px;
-  background-color: #541ae8;
   color: white;
   letter-spacing: 1px;
+  padding: 5px 5px;
 }
 .active button{
   background-color: #e89b64;
@@ -52,10 +49,11 @@ li {
 }
 
 .nav-button {
-  width: 75px;
+  width: 110px;
   cursor: pointer;
   border: none;
   border-radius:15px;
   letter-spacing: 1px;
   font-size: 15px;
+  padding: 5px 5px;
 }
