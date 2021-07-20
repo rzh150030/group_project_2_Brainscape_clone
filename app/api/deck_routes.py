@@ -111,3 +111,19 @@ def update_deck(id):
     for card in data:
         if card.id == 0:
             card = Card()
+            form.populate_obj(card)
+            deck = Deck.query.get(id)
+            deck.cards.append(card)
+            db.session.add(card)
+            db.session.commit()
+        if cards_in_table[card.id]:
+            card = Card.query.get(card.id)
+            card.question = card.question
+            card.answer = card.answer
+            del cards_in_table[card.id]
+            db.session.commit()
+
+    for key in cards_in_table.keys():
+        card = Card.query.get(key)
+        db.session.delete(card)
+        db.session.commit()
