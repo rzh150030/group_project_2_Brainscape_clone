@@ -75,32 +75,10 @@ def delete_deck(id):
 
 # Frontend sends data, data should contain cards that exists when saved
 # On backend route, compare and contrast database data to the ones given by the frontend
-## Data card id given = 0 is a card to create
-## Data cards ids left over get deleted
-## Data card id that matches is edited
+#  - Data card id given = 0 is a card to create
+#  - Data cards ids left over get deleted
+#  - Data card id that matches is edited
 # Send back some response when done
-
-'''
-route("/<int:id>")
-def update_deck():
-    cards_in_table = Deck.query.get(id).to_dict_with_cards()
-    form["csrf_token"].data = request.cookies["csrf_token"]
-    data = data given by redux store
-
-    for card in data:
-        if card.id == 0:
-            card = Card(question=data.question, answer=data.answer)
-            deck = Deck.query.get(id)
-            deck.cards.append(card)
-            db.session.add(card)
-        if cards_in_table[card.id]:
-            edit cards_in_table[card.id] in database
-            delete cards_in_table[card.id]
-
-    for key in cards_in_table.keys():
-        delete card in table for each key
-'''
-
 
 @deck_routes.route("/<int:id>", methods=["PATCH"])
 @login_required
