@@ -17,8 +17,3 @@ class Card(db.Model):
             'answer': self.answer,
             'deckId': self.deckId
         }
-
-    def to_dict_with_deck(self):
-        return {
-            'deck': deck
-        }

@@ -103,7 +103,8 @@ def update_deck():
 @deck_routes.route("/<int:id>", methods=["PATCH"])
 @login_required
 def update_deck(id):
-    cards_in_table = Deck.query.get(id).to_dict_with_cards()
+    deck = Deck.query.get(id)
+    cards_in_table = deck.to_dict_with_cards()
     form = CardForm()
     form["csrf_token"].data = request.cookies["csrf_token"]
     data = jsonify(request.json)
@@ -112,7 +113,6 @@ def update_deck(id):
         if card.id == 0:
             card = Card()
             form.populate_obj(card)
-            deck = Deck.query.get(id)
             deck.cards.append(card)
             db.session.add(card)
             db.session.commit()
@@ -127,3 +127,5 @@ def update_deck(id):
         card = Card.query.get(key)
         db.session.delete(card)
         db.session.commit()
+
+    return deck.to_dict()
