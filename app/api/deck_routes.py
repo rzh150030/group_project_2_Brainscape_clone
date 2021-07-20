@@ -118,7 +118,7 @@ def update_deck(id):
             deck.cards.append(card)
             db.session.add(card)
             db.session.commit()
-        if cards_in_table[int(card["id"])]:
+        elif cards_in_table[int(card["id"])]:
             card_from_table = Card.query.get(int(card["id"]))
             card_from_table.question = card["question"]
             card_from_table.answer = card["answer"]
