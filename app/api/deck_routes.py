@@ -29,9 +29,8 @@ def decks(id):
 @deck_routes.route("/category/<string:category>")
 def cat_decks(category):
     found_category = Category.query.filter_by(name=f"{category}").first()
-    decks = Deck.query.filter_by(_categoryId=f"{found_category.id}").all()
 
-    return {"decks": [deck.to_dict() for deck in decks]}
+    return found_category.to_dict_with_decks()
 
 
 # Grab decks based on current user
@@ -39,14 +38,14 @@ def cat_decks(category):
 @login_required
 def user_decks(id):
     if id == current_user.id:
-        decks = Deck.query.filter_by(_userId=f"{current_user.id}").all()
+        decks = Deck.query.filter_by(userId=f"{current_user.id}").all()
         return {"decks": [deck.to_dict() for deck in decks]}
 
     return {"errors": ["Unauthorized"]}
 
 
 # Create deck
-@deck_routes.route("/", methods=["POST"])
+@deck_routes.route("/create", methods=["POST"])
 @login_required
 def create_deck():
     form = DeckForm()
@@ -54,9 +53,23 @@ def create_deck():
     if form.validate_on_submit():
         deck = Deck()
         form.populate_obj(deck)
-
+        deck.userId = current_user.id
         db.session.add(deck)
         db.session.commit()
         return deck.to_dict()
 
     return {"errors": validation_errors_to_error_messages(form.errors)}
+
+# Delete deck
+@deck_routes.route("/<int:id>", methods=["DELETE"])
+@login_required
+def delete_deck(id):
+    deck = Deck.query.get(id)
+    if deck.userId == current_user.id:
+        db.session.delete(deck)
+        db.session.commit()
+        return deck.to_dict()
+    return {"errors": ["Unauthorized"]}
+
+    
+
