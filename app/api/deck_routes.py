@@ -1,7 +1,7 @@
-from flask import Blueprint, request
+from flask import Blueprint, request, jsonify
 from flask_login import login_required, current_user
-from app.models import db, Deck, Category
-from app.forms import DeckForm
+from app.models import db, Deck, Category, Card
+from app.forms import DeckForm, CardForm
 
 deck_routes = Blueprint('decks', __name__)
 
@@ -60,6 +60,7 @@ def create_deck():
 
     return {"errors": validation_errors_to_error_messages(form.errors)}
 
+
 # Delete deck
 @deck_routes.route("/<int:id>", methods=["DELETE"])
 @login_required
@@ -99,3 +100,14 @@ def update_deck():
     for key in cards_in_table.keys():
         delete card in table for each key
 '''
+@deck_routes.route("/<int:id>", methods=["PATCH"])
+@login_required
+def update_deck(id):
+    cards_in_table = Deck.query.get(id).to_dict_with_cards()
+    form = CardForm()
+    form["csrf_token"].data = request.cookies["csrf_token"]
+    data = jsonify(request.json)
+
+    for card in data:
+        if card.id == 0:
+            card = Card()
