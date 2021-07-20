@@ -9,7 +9,7 @@ class Deck(db.Model):
     userId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
     category = db.relationship('Category', back_populates='decks')
-    cards = db.relationship('Card', back_populates='deck')
+    cards = db.relationship('Card', cascade="all, delete-orphan", passive_deletes=True, back_populates='deck')
     user = db.relationship("User", back_populates="decks")
 
     def to_dict(self):

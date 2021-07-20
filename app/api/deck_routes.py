@@ -63,14 +63,14 @@ def create_deck():
 
 # Delete deck
 @deck_routes.route("/<int:id>", methods=["DELETE"])
-@login_required
+# @login_required
 def delete_deck(id):
     deck = Deck.query.get(id)
-    if deck.userId == current_user.id:
-        db.session.delete(deck)
-        db.session.commit()
-        return deck.to_dict()
-    return {"errors": ["Unauthorized"]}
+    # if deck.userId == current_user.id:
+    db.session.delete(deck)
+    db.session.commit()
+    return deck.to_dict()
+    # return {"errors": ["Unauthorized"]}
 
 
 # Frontend sends data, data should contain cards that exists when saved
