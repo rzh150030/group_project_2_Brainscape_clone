@@ -1,0 +1,34 @@
+#cards-container-div {
+  grid-area: indicards;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.whole-card-div {
+  display: grid;
+  border: 1px solid black;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas:
+    "cardquestion cardanswer"
+    ;
+  /* height: 100%; */
+  overflow-y: auto;
+}
+
+.question-div {
+  grid-area: cardquestion;
+  display: inline;
+  background-color: yellow;
+  display: flex;
+  justify-content: center;
+}
+
+.answer-div {
+  grid-area: cardanswer;
+  display: inline;
+  background-color: red;
+  display: flex;
+  justify-content: center;
+}

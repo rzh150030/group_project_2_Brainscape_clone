@@ -1,15 +1,16 @@
-#outer-div{
+.outer-div{
   display:flex;
-  justify-content: space-around;
-  margin-top: 20px;
+  justify-content: space-between;
+  padding-right: 52px;
+  padding-left: 52px;
 }
 
-#outer-div div {
+.outer-div div {
   display: inline;
   color: white;
 }
 
-#outer-div button {
+.outer-div button {
   border: none;
   background-color: transparent;
   color: white;
@@ -24,11 +25,13 @@
   font-size: 35px;
 }
 
-#my-decks-text text{
+#my-decks-text p {
   font-size: 35px;
+  padding: 0;
+  margin: 0;
 }
 
-#outer-div button:hover {
+.outer-div button:hover {
   background-color: white;
   color: black;
 }

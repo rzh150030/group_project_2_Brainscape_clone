@@ -11,6 +11,11 @@ const SBDeckTitle = () => {
         <li tabIndex="0">English</li>
         <li tabIndex="0">Psychology</li>
         <li tabIndex="0">Science</li>
+        <li tabIndex="0">Math</li>
+        <li tabIndex="0">English</li>
+        <li tabIndex="0">Psychology</li>
+        <li tabIndex="0">Science</li>
+
       </ul>
     </div>
   );

@@ -4,6 +4,11 @@
   font-family: sans-serif;
 }
 
+#deck-title-div {
+  height: 50%;
+  overflow-y: auto;
+}
+
 #deck-title-div ul {
   display: contents;
   justify-content:center;

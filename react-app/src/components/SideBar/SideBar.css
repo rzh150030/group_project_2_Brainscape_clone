@@ -1,7 +1,15 @@
 #sidebar-div{
+  grid-area: sidebar;
   height: 100%;
-  width: 15%;
+  width: 100%;
   background-color: #541ae8;
   padding-top: 100px;
   font-family: sans-serif;
+  /* overflow-y: auto; */
 }
+
+/* @media screen and (min-height: 80%) {
+  #sidebar-div {
+    height: auto;
+  }
+} */

@@ -5,7 +5,7 @@ const ProfileLogo = () => {
     <>
       <div id="profile-logo-div">
         <button id="profile-logo-button">
-          <i class="fas fa-user-circle"></i>
+          <i className="fas fa-user-circle"></i>
         </button>
       </div>
       <div id="profile-logo-username">
