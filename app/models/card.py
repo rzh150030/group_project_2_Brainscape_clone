@@ -8,9 +8,6 @@ class Card(db.Model):
     answer = db.Column(db.String(20), nullable=False)
     deckId = db.Column(db.Integer, db.ForeignKey('decks.id'), nullable=False)
 
-<<<<<<< HEAD
-    deck = db.relationship('Deck', back_populates='card')
-=======
     deck = db.relationship('Deck', back_populates='cards')
 
     def to_dict(self):
@@ -25,4 +22,3 @@ class Card(db.Model):
         return {
             'deck': deck
         }
->>>>>>> justin
