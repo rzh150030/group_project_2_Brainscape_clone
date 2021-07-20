@@ -13,16 +13,22 @@
   border: none;
   background-color: transparent;
   color: white;
-  height: 25px;
-  width: 25px;
-  margin-top: 2.5px;
+  height: 40px;
+  width: 40px;
   padding: 0;
+  cursor: pointer;
+  border-radius: 50%;
 }
 
 .fas.fa-plus {
-  font-size: 25px;
+  font-size: 35px;
 }
 
 #my-decks-text text{
-  font-size: 25px;
+  font-size: 35px;
+}
+
+#outer-div button:hover {
+  background-color: white;
+  color: black;
 }
