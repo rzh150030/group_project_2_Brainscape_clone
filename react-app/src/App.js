@@ -8,6 +8,7 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import HomePage from './components/HomePage/HomePage'
+import EditDeckPage from './components/EditDeckPage/EditDeckPage';
 import { authenticate } from './store/session';
 
 import { DecksPage } from './components/DecksPage/DecksPage';
@@ -49,6 +50,9 @@ function App() {
         <Route path='/decks-page' exact={true}>
           <DecksPage />
         </Route>
+        <ProtectedRoute path="/edit-deck" exact={true}>
+          <EditDeckPage/>
+        </ProtectedRoute>
       </Switch>
     </BrowserRouter>
   );

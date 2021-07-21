@@ -1,0 +1,80 @@
+#edit-deck-page-main-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+#edit-deck-form-box {
+  display: grid;
+  height: 500px;
+  width: 70%;
+  background-color: white;
+  grid-template-columns: 1fr 4fr 4fr 1fr;
+  grid-template-rows: repeat(50, 80px);
+  overflow-y: auto;
+  /* border: 1px solid black; */
+}
+
+#edit-deck-form-box div{
+  /* border: 1px solid black; */
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#flash-cards-title {
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+  color: orange;
+}
+
+#question-answer-div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  width: 70%;
+}
+
+#question-title-div{
+  display: flex;
+  justify-content: center;
+  margin-left: 122px;
+}
+#answer-title-div {
+  display: flex;
+  justify-content: center;
+  margin-right: 142px;
+}
+
+.form-input-box {
+  max-height: 40px;
+  width: 80%;
+}
+
+textarea {
+  resize: none
+}
+
+.delete-card-button {
+  height: 40px;
+  width: 40px;
+  background-color: red;
+  border: none;
+  border-radius: 50px;
+  /* color: white; */
+  font-weight: bold;
+  font-size: 30px;
+  /* text-align: center; */
+}
+
+.card-number-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+}
