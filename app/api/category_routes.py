@@ -19,4 +19,4 @@ def validation_errors_to_error_messages(validation_errors):
 @category_routes.route("/")
 def get_categories():
     categories = Category.query.all()
-    return {"categories": [cat.to_dict for cat in categories]}
+    return {"categories": [cat.to_dict() for cat in categories]}
