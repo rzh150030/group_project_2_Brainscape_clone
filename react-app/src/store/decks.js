@@ -11,7 +11,6 @@ export const getUserDecks = (userId) => async (dispatch) => {
 
   if (response.ok) {
     const decks = await response.json();
-    console.log(decks)
     dispatch(getUserDecksAction(decks));
   }
 };
