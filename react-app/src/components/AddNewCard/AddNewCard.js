@@ -15,7 +15,7 @@ const AddNewCard = () => {
               <p>Add/Edit Flashcards</p>
             </div>
             <div id="add-new-card-button-div">
-              <Link to="/edit-deck">
+              <Link to="/edit-deck/">
                 <button>
                   <i className="fas fa-plus"></i>
                 </button>

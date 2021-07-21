@@ -4,22 +4,26 @@
   justify-content: center;
   align-items: center;
   height: 100%;
+  /* margin-top: 100px; */
 }
 
-#edit-deck-form-box {
-  display: grid;
+#edit-deck-form {
   height: 500px;
   width: 70%;
   background-color: white;
-  grid-template-columns: 1fr 4fr 4fr 1fr;
-  grid-template-rows: repeat(50, 80px);
+  display: grid;
   overflow-y: auto;
-  /* border: 1px solid black; */
+  grid-template-rows: repeat(50, 80px);
 }
 
-#edit-deck-form-box div{
+.card-div {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 4fr 4fr 1fr;
+}
+.card-div div{
   /* border: 1px solid black; */
-  height: 100%;
+
   width: 100%;
   display: flex;
   justify-content: center;
@@ -29,7 +33,7 @@
 #flash-cards-title {
   display: flex;
   align-items: center;
-  font-size: 30px;
+  /* font-size: 30px; */
   color: orange;
 }
 
@@ -43,12 +47,16 @@
 #question-title-div{
   display: flex;
   justify-content: center;
+  margin: 5px 0px;
   margin-left: 122px;
+  font-size: 25px;
 }
 #answer-title-div {
   display: flex;
   justify-content: center;
+  margin: 5px 0px;
   margin-right: 142px;
+  font-size: 25px;
 }
 
 .form-input-box {
@@ -66,7 +74,7 @@ textarea {
   background-color: red;
   border: none;
   border-radius: 50px;
-  /* color: white; */
+  color: white;
   font-weight: bold;
   font-size: 30px;
   /* text-align: center; */
