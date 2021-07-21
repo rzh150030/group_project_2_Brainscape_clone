@@ -54,7 +54,7 @@ def upgrade():
     sa.Column('deckId', sa.Integer(), nullable=False),
     sa.Column('created_at', sa.DateTime(), server_default=sa.text('now()'), nullable=True),
     sa.Column('updated_at', sa.DateTime(), server_default=sa.text('now()'), nullable=True),
-    sa.ForeignKeyConstraint(['deckId'], ['decks.id'], ),
+    sa.ForeignKeyConstraint(['deckId'], ['decks.id'], ondelete='CASCADE' ),
     sa.PrimaryKeyConstraint('id')
     )
     # ### end Alembic commands ###
