@@ -26,7 +26,7 @@ const SBDeckTitle = () => {
     <div id="deck-title-div">
       <ul id="sidebar-ul">
         {userDecks?.map((deck) => (
-          <li key={deck.id} tabIndex="0">
+          <li key={deck.id} id={deck.id} tabIndex="0">
             {deck.title}
           </li>
         ))}
