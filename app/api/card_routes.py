@@ -25,24 +25,24 @@ def cards(id):
 
 
 # Create card
-@card_routes.route('/deck/<int:id>/create', methods=["POST"])
-@login_required
-def create_card(id):
-    form = CardForm()
-    form["csrf_token"].data = request.cookies["csrf_token"]
-    if form.validate_on_submit():
-        card = Card()
-        form.populate_obj(card)
-        card.deckId = id
-        db.session.add(card)
-        db.session.commit()
-        return card.to_dict()
+# @card_routes.route('/deck/<int:id>/create', methods=["POST"])
+# @login_required
+# def create_card(id):
+#     form = CardForm()
+#     form["csrf_token"].data = request.cookies["csrf_token"]
+#     if form.validate_on_submit():
+#         card = Card()
+#         form.populate_obj(card)
+#         card.deckId = id
+#         db.session.add(card)
+#         db.session.commit()
+#         return card.to_dict()
 
-    return {"errors": validation_errors_to_error_messages(form.errors)}
+#     return {"errors": validation_errors_to_error_messages(form.errors)}
 
 
 # Delete card
-@card_routes.route('/deck/<int:id>/', methods=["DELETE"])
-@login_required
-def delete_card(id):
-    card = Card.query.get(id)
+# @card_routes.route('/deck/<int:id>/', methods=["DELETE"])
+# @login_required
+# def delete_card(id):
+#     card = Card.query.get(id)

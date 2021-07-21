@@ -40,7 +40,6 @@ def user_decks(id):
     if id == current_user.id:
         decks = Deck.query.filter_by(userId=f"{current_user.id}").all()
         return {"decks": [deck.to_dict() for deck in decks]}
-
     return {"errors": ["Unauthorized"]}
 
 
@@ -56,21 +55,21 @@ def create_deck():
         deck.userId = current_user.id
         db.session.add(deck)
         db.session.commit()
-        return deck.to_dict()
+        return {"deck": deck.to_dict()}
 
     return {"errors": validation_errors_to_error_messages(form.errors)}
 
 
 # Delete deck
 @deck_routes.route("/<int:id>", methods=["DELETE"])
-# @login_required
+@login_required
 def delete_deck(id):
     deck = Deck.query.get(id)
-    # if deck.userId == current_user.id:
-    db.session.delete(deck)
-    db.session.commit()
-    return deck.to_dict()
-    # return {"errors": ["Unauthorized"]}
+    if deck.userId == current_user.id:
+        db.session.delete(deck)
+        db.session.commit()
+        return {"deck": deck.to_dict()}
+    return {"errors": ["Unauthorized"]}
 
 
 # Frontend sends data, data should contain cards that exists when saved
@@ -108,6 +107,6 @@ def update_deck(id):
             db.session.delete(card)
             db.session.commit()
 
-        return deck.to_dict()
+        return {"deck": deck.to_dict()}
 
     return {"errors": ["Unauthorized"]}
