@@ -24,7 +24,6 @@ export const authenticate = () => async (dispatch) => {
     if (data.errors) {
       return;
     }
-
     dispatch(setUser(data));
   }
 }
@@ -67,7 +66,6 @@ export const logout = () => async (dispatch) => {
   if (response.ok) {
     dispatch(removeUser());
   }
-
 };
 
 
@@ -83,7 +81,6 @@ export const signUp = (username, email, password) => async (dispatch) => {
       password,
     }),
   });
-
   if (response.ok) {
     const data = await response.json();
     dispatch(setUser(data))
