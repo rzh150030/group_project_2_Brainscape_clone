@@ -1,10 +1,13 @@
 const GET_USER_DECKS = "decks/GET_USER_DECKS";
+const ADD_DECK = "decks/ADD_DECK";
 const REMOVE_DECK = "decks/REMOVE_DECK";
 
 export const getUserDecksAction = (decks) => ({
   type: GET_USER_DECKS,
   payload: {...decks},
 });
+
+
 
 export const getUserDecks = (userId) => async (dispatch) => {
   const response = await fetch(`/api/decks/user/${userId}`);
@@ -14,6 +17,21 @@ export const getUserDecks = (userId) => async (dispatch) => {
     dispatch(getUserDecksAction(decks));
   }
 };
+
+export const addNewDeck = (newDeck) => async (dispatch) => {
+  const response = await fetch(`/api/decks/create`, {
+    method: 'POST',
+    headers: {
+      "CONTENT-TYPE": "application/json"
+    },
+    body: JSON.stringify(newDeck)
+  })
+  if (response.ok) {
+    const deck = await response.json();
+    // dispatch(getUserDecksAction(decks));
+    getUserDecks(deck.userId)
+  }
+}
 
 const initialState = {};
 
