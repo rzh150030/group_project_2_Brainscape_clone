@@ -50,9 +50,7 @@ def create_deck():
     form = DeckForm()
     form["csrf_token"].data = request.cookies["csrf_token"]
     if form.validate_on_submit():
-        deck = Deck()
-        form.populate_obj(deck)
-        deck.userId = current_user.id
+        deck = Deck( title=form.data["title"], categoryId=int(form.data["category"]), userId=current_user.id )
         db.session.add(deck)
         db.session.commit()
         return {"deck": deck.to_dict()}
@@ -88,7 +86,7 @@ def update_deck(id):
     form["csrf_token"].data = request.cookies["csrf_token"]
     data = request.json
 
-    if deck.userId == current_user.id:
+    if deck.userId == current_user.id and form.validate_on_submit():
         for card in data["cards"]:
             if int(card["id"]) == 0:
                 card = Card(question=card["question"], answer=card["answer"])

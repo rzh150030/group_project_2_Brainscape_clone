@@ -1,0 +1,18 @@
+#add-new-card-text p {
+  font-size: 25px;
+  padding: 0;
+  margin: 0;
+}
+
+#outer-div-add-text .outer-div {
+  height: 100%;
+  padding: 30px;
+}
+
+#add-new-card-text {
+  margin-top: 10px;
+}
+
+#add-new-card-button-div button {
+  margin-top: 4px;
+}

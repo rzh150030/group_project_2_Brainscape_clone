@@ -1,0 +1,59 @@
+nav {
+  display: grid;
+  width: 100%;
+  grid-template-areas:
+    "navbar1 navbar2 navbar3";
+  grid-auto-columns: minmax(300px,33vw);
+  background-color: #e6e6e6;
+  height:100px;
+  position: fixed;
+  top: 0;
+}
+
+ul {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  list-style: none;
+  padding: 0 50px;
+  grid-area: navbar3;
+}
+
+li {
+  margin: 0 40px;
+}
+
+#search-bar {
+  grid-area: navbar2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+#search-bar button {
+  font-size: 15px;
+  background-color: #1B8BBF;
+  margin-left: 10px;
+  width: 75px;
+  cursor: pointer;
+  border: none;
+  border-radius:15px;
+  color: white;
+  letter-spacing: 1px;
+  padding: 5px 5px;
+}
+.active button{
+  background-color: #e89b64;
+
+}
+
+.nav-button {
+  width: 110px;
+  cursor: pointer;
+  border: none;
+  border-radius:15px;
+  letter-spacing: 1px;
+  font-size: 15px;
+  padding: 5px 5px;
+}

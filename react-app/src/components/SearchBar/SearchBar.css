@@ -1,0 +1,8 @@
+#search-bar input {
+  border: none;
+  height: 28px;
+  font-size: 15px;
+  font-family: sans-serif;
+  width: 50%;
+  border-radius: 25px;
+}
