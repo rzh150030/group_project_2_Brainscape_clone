@@ -10,7 +10,7 @@ const EditDeckPage = () => {
     { id: 0, q: "", a: "" },
   ]);
 
-  // const { deckId } = useParams()
+  const { deckId } = useParams()
 
   useEffect(() => {}, []);
   const submitDeck = (e) => {
