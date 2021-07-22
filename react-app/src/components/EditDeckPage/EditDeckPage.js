@@ -63,6 +63,7 @@ const EditDeckPage = () => {
                 className="form-input-box"
                 type="text"
                 value={card.question}
+                onChange={value}
               ></textarea>
             </div>
             <div className="form-input-div">
@@ -71,6 +72,7 @@ const EditDeckPage = () => {
                 className="form-input-box"
                 type="text"
                 value={card.answer}
+                onChange={value}
               ></textarea>
             </div>
             <div>
@@ -81,6 +83,9 @@ const EditDeckPage = () => {
       </form>
       <button onClick={newCardInput}>
           Add New Card
+      </button>
+      <button onClick={submitDeck}>
+        Save Deck
       </button>
     </div>
   );
