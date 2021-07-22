@@ -8,18 +8,27 @@ const EditDeckPage = () => {
     useSelector(state => state.cards)
   );
 
-  const { deckId } = useParams()
+  const { deckId } = useParams();
+  const cardCount = deck.length;
+  console.log(cardCount)
 
   useEffect(() => {}, []);
   const submitDeck = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
   };
 
   const deleteCard = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
   };
+
+  const newCardInput = (e) => {
+    e.preventDefault();
+
+    const form = document.getElementById("edit-deck-form");
+    form.appendChild()
+  }
 
   return (
     <div id="edit-deck-page-main-div">
@@ -54,6 +63,9 @@ const EditDeckPage = () => {
           </div>
         ))}
       </form>
+      <button onClick={newCardInput}>
+          Add New Card
+      </button>
     </div>
   );
 };
