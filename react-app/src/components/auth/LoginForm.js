@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
 import { login } from "../../store/session";
+import { useModal } from '../../context/Modal'
 import "./LoginForm.css";
 
 const LoginForm = () => {
@@ -12,16 +13,18 @@ const LoginForm = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
+
+
   const onLogin = async (e) => {
     e.preventDefault();
     const data = await dispatch(login(email, password));
     if (data) {
       setErrors(data);
     }
-    // if (user) {
-    //   return <Redirect to="/decks-page" />;
-    // }
+
   };
+
+
 
   const updateEmail = (e) => {
     setEmail(e.target.value);
@@ -31,8 +34,6 @@ const LoginForm = () => {
     setPassword(e.target.value);
   };
 
-  // useEffect(() => {
-    // }, [user]);
       if (user) {
         return <Redirect to="/decks-page" />;
       }

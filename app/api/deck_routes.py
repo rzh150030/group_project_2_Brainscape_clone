@@ -86,7 +86,7 @@ def update_deck(id):
     form["csrf_token"].data = request.cookies["csrf_token"]
     data = request.json
 
-    if deck.userId == current_user.id:
+    if deck.userId == current_user.id and form.validate_on_submit():
         for card in data["cards"]:
             if int(card["id"]) == 0:
                 card = Card(question=card["question"], answer=card["answer"])

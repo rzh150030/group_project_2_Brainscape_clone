@@ -8,23 +8,28 @@ import LoginForm from "./auth/LoginForm";
 import SignUpForm from './auth/SignUpForm'
 import Modal from "./Modal";
 import "./NavBar.css";
+import useModal from "../context/Modal"
+
 
 const NavBar = ({ modalToggle }) => {
   const [showModal, setShowModal] = useState(false);
-  const [formModal, setFormModal] = useState("");
+  const [form, setForm] = useState("");
   const sessionUser = useSelector((state) => state.session.user);
   const history = useHistory();
 
-  // useEffect(() => {}, [showModal,formModal]);
 
-  const showFormModal = (e) => {
-    e.preventDefault();
-    setFormModal(e.target.value);
+  useEffect(() => {}, []);
+
+  const showForm = (e) => {
+    // e.preventDefault();
+    setForm(e.target.value);
     setShowModal(true);
   };
+
+
   const onClose = () => {
     setShowModal(false);
-    setFormModal("");
+    setForm("");
   };
 
   if (modalToggle) {
@@ -50,7 +55,7 @@ const NavBar = ({ modalToggle }) => {
                   <button
                     id="login-button"
                     className="nav-button"
-                    onClick={showFormModal}
+                    onClick={showForm}
                     value="login"
                   >
                     Login
@@ -62,7 +67,7 @@ const NavBar = ({ modalToggle }) => {
                   <button
                     id="signup-button"
                     className="nav-button"
-                    onClick={showFormModal}
+                    onClick={showForm}
                     value="signup"
                   >
                     Sign Up
@@ -87,12 +92,12 @@ const NavBar = ({ modalToggle }) => {
           ) : null}
         </ul>
       </nav>
-      {showModal === true && formModal === "login" &&(
+      {showModal === true && form === "login" &&(
         <Modal onClose={onClose}>
           <LoginForm />
         </Modal>
       )}
-      {showModal === true && formModal === "signup" &&(
+      {showModal === true && form === "signup" &&(
         <Modal onClose={onClose}>
           <SignUpForm />
         </Modal>

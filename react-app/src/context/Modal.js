@@ -4,6 +4,7 @@ export const ModalContext = createContext();
 
 export const useModal = () => useContext(ModalContext)
 
+
 export const ModalProvider = ({ children }) => {
   const ModalRef = useRef();
   const [value, setValue] = useState();
