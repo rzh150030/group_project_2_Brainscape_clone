@@ -1,26 +1,26 @@
 import "./EditDeckPage.css";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const EditDeckPage = () => {
-  const [deck, setDeck] = useState([
-    { id: 0, q: "", a: "" },
-    { id: 0, q: "", a: "" },
-    { id: 0, q: "", a: "" },
-    { id: 0, q: "", a: "" },
-  ]);
+  const [deck, setDeck] = useState(
+    useSelector(state => state.cards)
+  );
 
   const { deckId } = useParams()
 
   useEffect(() => {}, []);
   const submitDeck = (e) => {
     e.preventDefault()
-    console.log(deck);
+
   };
+
   const deleteCard = (e) => {
     e.preventDefault()
-    console.log(e.target.id);
+
   };
+
   return (
     <div id="edit-deck-page-main-div">
       <h1 id="flash-cards-title"> Flash Cards in "Deck Title"</h1>
@@ -37,6 +37,7 @@ const EditDeckPage = () => {
                 rows="3"
                 className="form-input-box"
                 type="text"
+                value={card.question}
               ></textarea>
             </div>
             <div className="form-input-div">
@@ -44,6 +45,7 @@ const EditDeckPage = () => {
                 rows="3"
                 className="form-input-box"
                 type="text"
+                value={card.answer}
               ></textarea>
             </div>
             <div>
