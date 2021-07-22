@@ -1,9 +1,11 @@
 import "./EditDeckPage.css";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { getDeckCards } from "../../store/cards";
 
 const EditDeckPage = () => {
+  const dispatch = useDispatch();
   const [deck, setDeck] = useState(
     useSelector(state => state.cards)
   );
@@ -11,7 +13,11 @@ const EditDeckPage = () => {
   const { deckId } = useParams();
   const cardCount = deck.length;
 
-  useEffect(() => {}, []);
+
+  useEffect(() => {
+    dispatch(getDeckCards(deckId));
+  }, [deck]);
+
   const submitDeck = (e) => {
     e.preventDefault();
 
@@ -33,7 +39,6 @@ const EditDeckPage = () => {
                 rows="3"
                 className="form-input-box"
                 type="text"
-                value={card.question}
               ></textarea>
             </div>
             <div className="form-input-div">
@@ -41,15 +46,14 @@ const EditDeckPage = () => {
                 rows="3"
                 className="form-input-box"
                 type="text"
-                value={card.answer}
               ></textarea>
             </div>
             <div>
-              <button id={i} className="delete-card-button" onClick={deleteCard} >X</button>
+              <button id={cardCount} className="delete-card-button" onClick={deleteCard} >X</button>
             </div>
           </div>
     )
-    
+
     return newCardDiv;
   }
 
@@ -85,6 +89,7 @@ const EditDeckPage = () => {
             </div>
           </div>
         ))}
+        
       </form>
       <button onClick={newCardInput}>
           Add New Card
