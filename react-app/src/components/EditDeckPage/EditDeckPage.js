@@ -1,13 +1,14 @@
 import "./EditDeckPage.css";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { getDeckCards } from "../../store/cards";
+import { getDeckCards, updateDeck } from "../../store/cards";
 
 const EditDeckPage = () => {
   const dispatch = useDispatch();
   const cards = useSelector(state => state.cards)
   const [deck, setDeck] = useState(cards);
+  const history = useHistory();
 
   const { deckId } = useParams();
 
@@ -26,8 +27,9 @@ const EditDeckPage = () => {
       cards: deck
     }
 
-    // let newDeck = dispatch() thunk
-    // redirect
+    let newDeck = dispatch(updateDeck(data, deckId));
+
+    if (newDeck) history.push(`/deck-page/${deckId}`);
   };
 
   const deleteCard = (e) => {
