@@ -24,6 +24,10 @@ export const wipeCurrentCards = () => async (dispatch) => {
   dispatch(wipeCurrentDeckCards());
 }
 
+export const updateDeck = () => async (dispatch) => {
+  
+}
+
 const initialState = [];
 
 export default function reducer(state = initialState, action) {

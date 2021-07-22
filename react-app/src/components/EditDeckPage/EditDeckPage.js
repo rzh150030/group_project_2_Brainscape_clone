@@ -22,6 +22,12 @@ const EditDeckPage = () => {
   const submitDeck = (e) => {
     e.preventDefault();
 
+    const data = {
+      cards: deck
+    }
+
+    // let newDeck = dispatch() thunk
+    // redirect
   };
 
   const deleteCard = (e) => {
