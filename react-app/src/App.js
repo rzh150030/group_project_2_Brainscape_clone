@@ -12,6 +12,7 @@ import EditDeckPage from './components/EditDeckPage/EditDeckPage';
 import { authenticate } from './store/session';
 
 import { DecksPage } from './components/DecksPage/DecksPage';
+import StudyDeckPage from './components/StudyDeckPage/StudyDeckPage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -41,11 +42,14 @@ function App() {
         <Route path='/' exact={true} >
           <HomePage/>
         </Route>
-        <Route path='/decks-page' exact={true}>
+        <Route path='/deck-page/:deckId' exact={true}>
           <DecksPage />
         </Route>
         <ProtectedRoute path="/edit-deck" exact={true}>
           <EditDeckPage/>
+        </ProtectedRoute>
+        <ProtectedRoute path="/study-deck-page">
+          <StudyDeckPage />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

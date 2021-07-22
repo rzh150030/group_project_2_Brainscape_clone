@@ -1,0 +1,16 @@
+#study-page-outer-main-div {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 1fr 4fr;
+  grid-template-areas:
+    "sidebar deckheader"
+    "sidebar indicards"
+    ;
+  height: 100%;
+  overflow: hidden;
+}
+
+#study-card-container {
+  grid-area: indicards;
+  background-color: wheat;
+}

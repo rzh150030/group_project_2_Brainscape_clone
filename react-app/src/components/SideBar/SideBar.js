@@ -4,12 +4,11 @@ import MyDecksSBTitle from '../MyDecksSBTitle/MyDecksSBTitle'
 import SBDeckTitle from '../SBDeckTitle/SBDeckTitle'
 import AddNewCard from '../AddNewCard/AddNewCard';
 
-const SideBar = () => {
+const SideBar = ({page}) => {
   return (
     <div id="sidebar-div">
       <ProfileLogo />
-      <MyDecksSBTitle />
-      {/* <SBDeckTitle/> */}
+      <MyDecksSBTitle page={page}/>
       <AddNewCard />
     </div>
   );

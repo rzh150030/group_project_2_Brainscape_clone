@@ -6,11 +6,12 @@ import { useSelector } from 'react-redux';
 
 export const DecksPage = () => {
   const sessionUser = useSelector((state) => state.session.user)
+  const page = 'deck-page';
 
   return (
     <>
       <div id="decks-page-grid-container">
-        <SideBar />
+        <SideBar page={page}/>
         <DeckMainHeader />
         <CardsContainer />
       </div>
