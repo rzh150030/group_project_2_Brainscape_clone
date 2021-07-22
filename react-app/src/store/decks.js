@@ -18,7 +18,7 @@ export const getUserDecks = (userId) => async (dispatch) => {
   }
 };
 
-export const addNewDeck = (newDeck) => async (dispatch) => {
+export const addNewDeck = async(newDeck) => {
   const response = await fetch(`/api/decks/create`, {
     method: 'POST',
     headers: {
@@ -28,8 +28,8 @@ export const addNewDeck = (newDeck) => async (dispatch) => {
   })
   if (response.ok) {
     const deck = await response.json();
-    // dispatch(getUserDecksAction(decks));
-    getUserDecks(deck.userId)
+
+    getUserDecks(+deck.userId)
   }
 }
 

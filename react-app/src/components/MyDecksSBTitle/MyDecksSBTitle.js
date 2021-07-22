@@ -5,10 +5,10 @@ import * as deckActions from "../../store/decks";
 
 const MyDecksSBTitle = () => {
   const sessionUser = useSelector((state) => state.session.user);
-  const dispatch = useDispatch()
+
   const addNewDeck = (e) => {
     e.preventDefault();
-    dispatch(deckActions.addNewDeck({ title: "New Deck", category: 1}))
+    deckActions.addNewDeck({ title: "New Deck", category: 1})
   };
 
   return (

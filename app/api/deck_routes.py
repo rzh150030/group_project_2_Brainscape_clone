@@ -50,9 +50,7 @@ def create_deck():
     form = DeckForm()
     form["csrf_token"].data = request.cookies["csrf_token"]
     if form.validate_on_submit():
-        deck = Deck()
-        form.populate_obj(deck)
-        deck.userId = current_user.id
+        deck = Deck( title=form.data["title"], categoryId=int(form.data["category"]), userId=current_user.id )
         db.session.add(deck)
         db.session.commit()
         return {"deck": deck.to_dict()}
