@@ -11,12 +11,11 @@ const EditDeckPage = () => {
   );
 
   const { deckId } = useParams();
-  const cardCount = deck.length;
 
 
   useEffect(() => {
     dispatch(getDeckCards(deckId));
-  }, [deck]);
+  }, []);
 
   const submitDeck = (e) => {
     e.preventDefault();
@@ -31,30 +30,7 @@ const EditDeckPage = () => {
   const newCardInput = (e) => {
     e.preventDefault();
 
-    let newCardDiv = (
-      <div key={cardCount} className="card-div">
-            <div className="card-number-div">{cardCount + 1}</div>
-            <div className="form-input-div">
-              <textarea
-                rows="3"
-                className="form-input-box"
-                type="text"
-              ></textarea>
-            </div>
-            <div className="form-input-div">
-              <textarea
-                rows="3"
-                className="form-input-box"
-                type="text"
-              ></textarea>
-            </div>
-            <div>
-              <button id={cardCount} className="delete-card-button" onClick={deleteCard} >X</button>
-            </div>
-          </div>
-    )
-
-    return newCardDiv;
+    setDeck([...deck, {id: 0, question: "", answer: "", deckId}])
   }
 
   return (
@@ -89,7 +65,6 @@ const EditDeckPage = () => {
             </div>
           </div>
         ))}
-        
       </form>
       <button onClick={newCardInput}>
           Add New Card
