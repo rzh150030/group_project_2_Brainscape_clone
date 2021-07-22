@@ -6,16 +6,18 @@ import { getDeckCards } from "../../store/cards";
 
 const EditDeckPage = () => {
   const dispatch = useDispatch();
-  const [deck, setDeck] = useState(
-    useSelector(state => state.cards)
-  );
+  const cards = useSelector(state => state.cards)
+  const [deck, setDeck] = useState(cards);
 
   const { deckId } = useParams();
-
 
   useEffect(() => {
     dispatch(getDeckCards(deckId));
   }, []);
+
+  useEffect(() => {
+    setDeck(cards);
+  }, [cards]);
 
   const submitDeck = (e) => {
     e.preventDefault();
@@ -32,7 +34,7 @@ const EditDeckPage = () => {
 
     setDeck([...deck, {id: 0, question: "", answer: "", deckId}])
   }
-
+  
   return (
     <div id="edit-deck-page-main-div">
       <h1 id="flash-cards-title"> Flash Cards in "Deck Title"</h1>
