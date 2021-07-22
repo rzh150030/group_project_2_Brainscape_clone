@@ -9,7 +9,7 @@ const SideBar = () => {
     <div id="sidebar-div">
       <ProfileLogo />
       <MyDecksSBTitle />
-      <SBDeckTitle/>
+      {/* <SBDeckTitle/> */}
       <AddNewCard />
     </div>
   );

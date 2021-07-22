@@ -9,21 +9,20 @@
 
 #edit-deck-form {
   height: 500px;
-  width: 70%;
+  width: 100%;
   background-color: white;
   display: grid;
   overflow-y: auto;
   grid-template-rows: repeat(50, 80px);
+  margin-top: 25px;
 }
 
 .card-div {
-  width: 100%;
+  width: 70rem;
   display: grid;
   grid-template-columns: 1fr 4fr 4fr 1fr;
 }
 .card-div div{
-  /* border: 1px solid black; */
-
   width: 100%;
   display: flex;
   justify-content: center;
@@ -85,4 +84,5 @@ textarea {
   justify-content: center;
   align-items: center;
   font-size: 30px;
+  color: black;
 }

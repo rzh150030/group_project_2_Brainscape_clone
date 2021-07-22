@@ -28,7 +28,6 @@ export const addNewDeck = async(newDeck) => {
   })
   if (response.ok) {
     const deck = await response.json();
-
     getUserDecks(+deck.userId)
   }
 }

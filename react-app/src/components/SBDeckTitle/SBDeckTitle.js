@@ -5,42 +5,43 @@ import * as deckActions from "../../store/decks";
 import * as cardActions from "../../store/cards";
 
 
-const SBDeckTitle = () => {
+const SBDeckTitle = ({addDeck}) => {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const storeDecks = useSelector((state) => state.userDecks.decks);
   const [userDecks, setUserDecks] = useState([]);
 
-
   useEffect(() => {
     const getDeckTitles = async (userId) => {
       await dispatch(deckActions.getUserDecks(userId));
     };
-    if (sessionUser) {
+    if (sessionUser || addDeck) {
       getDeckTitles(sessionUser.id);
     }
-  }, [dispatch, sessionUser]);
 
-  useEffect(()=>{
+  }, [dispatch, sessionUser, addDeck]);
+
+  useEffect(() => {
     setUserDecks(storeDecks);
-  },[storeDecks])
+  }, [storeDecks]);
 
-  const getDeckCards = async(e) => {
-    e.preventDefault()
-    await dispatch(cardActions.getDeckCards(e.target.id))
-
-  }
+  const getDeckCards = async (e) => {
+    e.preventDefault();
+    await dispatch(cardActions.getDeckCards(e.target.id));
+  };
 
   return (
-    <div id="deck-title-div">
-      <ul id="sidebar-ul">
-        {userDecks?.map((deck) => (
-          <li key={deck.id} id={deck.id} onClick={getDeckCards} tabIndex="0">
-            {deck.title}
-          </li>
-        ))}
-      </ul>
-    </div>
+    <>
+      <div id="deck-title-div">
+        <ul id="sidebar-ul">
+          {userDecks?.map((deck) => (
+            <li key={deck.id} id={deck.id} onClick={getDeckCards} tabIndex="0">
+              {deck.title}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
   );
 };
 

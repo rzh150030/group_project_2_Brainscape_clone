@@ -1,14 +1,23 @@
 import "./MyDecksSBTitle.css";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import {  useEffect, useState } from "react";
 import * as deckActions from "../../store/decks";
+import SBDeckTitle from "../SBDeckTitle/SBDeckTitle"
 
 const MyDecksSBTitle = () => {
   const sessionUser = useSelector((state) => state.session.user);
+  const storeDecks = useSelector(state => state.userDecks.decks)
+  const [addDeck, setAddDeck] = useState(false)
+  useEffect(()=> {
+    return setTimeout(() => {
+      setAddDeck(false)
+    }, 300);
+  },[storeDecks])
 
   const addNewDeck = (e) => {
     e.preventDefault();
     deckActions.addNewDeck({ title: "New Deck", category: 1})
+    setAddDeck(true)
   };
 
   return (
@@ -37,6 +46,7 @@ const MyDecksSBTitle = () => {
           <hr></hr>
         </>
       )}
+      <SBDeckTitle addDeck={addDeck}/>
     </>
   );
 };
