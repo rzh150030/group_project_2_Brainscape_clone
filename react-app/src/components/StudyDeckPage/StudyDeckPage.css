@@ -11,6 +11,16 @@
 }
 
 #study-card-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   grid-area: indicards;
   background-color: wheat;
+}
+
+.study-card-div {
+  width: 70%;
+  height: 70%;
+  background-color: violet;
 }
