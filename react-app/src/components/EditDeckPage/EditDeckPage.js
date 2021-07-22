@@ -63,7 +63,7 @@ const EditDeckPage = () => {
                 className="form-input-box"
                 type="text"
                 value={card.question}
-                onChange={value}
+                onChange={(e) => e.target.value}
               ></textarea>
             </div>
             <div className="form-input-div">
@@ -72,7 +72,7 @@ const EditDeckPage = () => {
                 className="form-input-box"
                 type="text"
                 value={card.answer}
-                onChange={value}
+                onChange={(e) => e.target.value}
               ></textarea>
             </div>
             <div>

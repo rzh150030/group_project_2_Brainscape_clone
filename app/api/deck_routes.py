@@ -105,6 +105,6 @@ def update_deck(id):
             db.session.delete(card)
             db.session.commit()
 
-        return {"deck": deck.to_dict()}
+        return deck.to_dict_with_cards()
 
     return {"errors": ["Unauthorized"]}
