@@ -27,14 +27,17 @@ const EditDeckPage = () => {
   const deleteCard = (e) => {
     e.preventDefault();
 
+    const newDeck = [...deck];
+    newDeck.splice(e.target.id, 1);
+    setDeck(newDeck);
   };
 
   const newCardInput = (e) => {
     e.preventDefault();
 
-    setDeck([...deck, {id: 0, question: "", answer: "", deckId}])
+    setDeck([...deck, {id: 0, question: "", answer: "", deckId}]);
   }
-  
+
   return (
     <div id="edit-deck-page-main-div">
       <h1 id="flash-cards-title"> Flash Cards in "Deck Title"</h1>
@@ -63,7 +66,7 @@ const EditDeckPage = () => {
               ></textarea>
             </div>
             <div>
-              <button id={i} className="delete-card-button" onClick={deleteCard} >X</button>
+              <button id={i} className="delete-card-button" onClick={(e) => deleteCard(e)} >X</button>
             </div>
           </div>
         ))}
