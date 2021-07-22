@@ -4,10 +4,11 @@ import {  useEffect, useState } from "react";
 import * as deckActions from "../../store/decks";
 import SBDeckTitle from "../SBDeckTitle/SBDeckTitle"
 
-const MyDecksSBTitle = () => {
+const MyDecksSBTitle = ({page}) => {
   const sessionUser = useSelector((state) => state.session.user);
   const storeDecks = useSelector(state => state.userDecks.decks)
   const [addDeck, setAddDeck] = useState(false)
+
   useEffect(()=> {
     return setTimeout(() => {
       setAddDeck(false)
@@ -46,7 +47,7 @@ const MyDecksSBTitle = () => {
           <hr></hr>
         </>
       )}
-      <SBDeckTitle addDeck={addDeck}/>
+      <SBDeckTitle page={page} addDeck={addDeck}/>
     </>
   );
 };

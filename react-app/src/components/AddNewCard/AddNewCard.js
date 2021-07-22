@@ -2,7 +2,7 @@ import "./AddNewCard.css";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-const AddNewCard = () => {
+const AddNewCard = ({ deckId }) => {
   const sessionUser = useSelector((state) => state.session.user);
 
   return (
@@ -15,7 +15,7 @@ const AddNewCard = () => {
               <p>Add/Edit Flashcards</p>
             </div>
             <div id="add-new-card-button-div">
-              <Link to="/edit-deck/">
+              <Link to={`/edit-deck/${deckId}`}>
                 <button>
                   <i className="fas fa-plus"></i>
                 </button>

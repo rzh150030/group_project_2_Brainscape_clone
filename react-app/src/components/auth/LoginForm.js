@@ -3,15 +3,17 @@ import { useSelector, useDispatch } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
 import { login } from "../../store/session";
 import { useModal } from '../../context/Modal'
+import * as deckActions from '../../store/decks'
 import "./LoginForm.css";
 
-const LoginForm = () => {
+const LoginForm = ({setShowModal}) => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const user = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
   const history = useHistory();
+  const userDecks = useSelector((state) => state.userDecks.decks)
 
 
 
@@ -21,7 +23,7 @@ const LoginForm = () => {
     if (data) {
       setErrors(data);
     }
-
+    setShowModal(false);
   };
 
 
@@ -35,6 +37,13 @@ const LoginForm = () => {
   };
 
       if (user) {
+        const checkIfDeckExists = async () => await dispatch(deckActions.getUserDecks(user.id))
+
+        if (userDecks && userDecks.length > 0) {
+          const id = userDecks[0].id;
+          return <Redirect to={`/deck-page/${id}`} />
+        }
+
         return <Redirect to="/decks-page" />;
       }
 
