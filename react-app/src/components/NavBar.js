@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { NavLink, useHistory } from "react-router-dom";
-import { useSelector } from "react-redux";
+import React, { useState, useEffect, useDebugValue } from "react";
+import { NavLink, useHistory, Redirect } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import Logo from "./Logo/Logo";
 import SearchBar from "./SearchBar/SearchBar";
 import LogoutButton from "./auth/LogoutButton";
@@ -9,14 +9,39 @@ import SignUpForm from './auth/SignUpForm'
 import Modal from "./Modal";
 import "./NavBar.css";
 import useModal from "../context/Modal"
+import * as deckActions from '../store/decks'
+import * as cardActions from '../store/cards'
 
 
 const NavBar = ({ modalToggle }) => {
   const [showModal, setShowModal] = useState(false);
   const [form, setForm] = useState("");
   const sessionUser = useSelector((state) => state.session.user);
+  const userDecks = useSelector((state) => state.userDecks.decks);
   const history = useHistory();
+  const dispatch = useDispatch();
 
+  const onMyDecksClick = () => {
+    dispatch(cardActions.wipeCurrentCards());
+  }
+
+  // let id;
+
+  // if (sessionUser) {
+  //   const checkIfDeckExists = async () => await dispatch(deckActions.getUserDecks(sessionUser.id))
+  //   checkIfDeckExists()
+
+  //     if (userDecks?.length > 0) {
+  //       id = userDecks[0].id;
+  //     }
+
+
+  //   }
+  //     else {
+  //       return <Redirect to="/decks-page" />;
+  //     }
+
+  // {`/deck-page/${id}`}
 
   useEffect(() => {}, []);
 
@@ -79,8 +104,8 @@ const NavBar = ({ modalToggle }) => {
           {sessionUser ? (
             <>
               <li>
-                <NavLink to="/decks-page" exact={true} activeClassName="active">
-                  <button id="decks-page-button" className="nav-button">
+                <NavLink to="/decks-page/" exact={true} activeClassName="active">
+                  <button id="decks-page-button" className="nav-button" onClick={onMyDecksClick}>
                     My Decks
                   </button>
                 </NavLink>
@@ -94,12 +119,12 @@ const NavBar = ({ modalToggle }) => {
       </nav>
       {showModal === true && form === "login" &&(
         <Modal onClose={onClose}>
-          <LoginForm />
+          <LoginForm setShowModal={setShowModal} />
         </Modal>
       )}
       {showModal === true && form === "signup" &&(
         <Modal onClose={onClose}>
-          <SignUpForm />
+          <SignUpForm setShowModal={setShowModal} />
         </Modal>
       )}
     </>

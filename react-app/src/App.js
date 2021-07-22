@@ -42,13 +42,16 @@ function App() {
         <Route path='/' exact={true} >
           <HomePage/>
         </Route>
+        <Route path='/decks-page' exact={true}>
+          <DecksPage />
+        </Route>
         <Route path='/deck-page/:deckId' exact={true}>
           <DecksPage />
         </Route>
-        <ProtectedRoute path="/edit-deck" exact={true}>
+        <ProtectedRoute path="/edit-deck/:deckId" exact={true}>
           <EditDeckPage/>
         </ProtectedRoute>
-        <ProtectedRoute path="/study-deck-page">
+        <ProtectedRoute path="/study-deck-page/:deckId">
           <StudyDeckPage />
         </ProtectedRoute>
       </Switch>
