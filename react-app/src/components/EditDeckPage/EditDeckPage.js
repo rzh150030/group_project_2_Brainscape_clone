@@ -108,10 +108,19 @@ const EditDeckPage = () => {
           </div>
         ))}
       </form>
-      <i class="fas fa-plus-circle" onClick={newCardInput}></i>
-      <button onClick={submitDeck}>
-        Save Deck
-      </button>
+      <div className='buttons-holder'>
+        <div className='add-card-holder'>
+          <i className="far fa-plus-square" onClick={newCardInput}></i>
+        </div>
+        <div className='buttons-holder-right'>
+          <button className='save-button' onClick={submitDeck}>
+            Save Deck
+          </button>
+          <button className='study-button'>
+            Start Studying
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
