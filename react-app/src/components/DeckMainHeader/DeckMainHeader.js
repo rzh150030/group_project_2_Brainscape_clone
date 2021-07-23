@@ -9,14 +9,14 @@ import * as categoryActions from "../../store/categories";
 
 
 const DeckMainHeader = () => {
-  const category = useSelector((state) => state.categories.category)
-  const cards = useSelector((state) => state.cards)
+  const category = useSelector((state) => state.categories.category);
+  const cards = useSelector((state) => state.cards);
   const dispatch = useDispatch();
   const { deckId } = useParams();
 
   useEffect(() => {
     dispatch(categoryActions.getCategory(deckId))
-  }, [cards])
+  }, [cards]);
 
 
   return (
