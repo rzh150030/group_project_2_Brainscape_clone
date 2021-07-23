@@ -20,9 +20,16 @@ const EditDeckPage = () => {
     setDeck(cards);
   }, [cards]);
 
-  const changeCard = (e, i) => {
-    let newCard = deck[i]
+  const changeQuestion = (e, i) => {
+    let newCard = deck[i];
     newCard.question = e.target.value;
+    const newDeck = [...deck];
+    newDeck.splice(i, 1, newCard);
+    setDeck(newDeck);
+  }
+
+  const changeAnswer = (e, i) => {
+    let newCard = deck[i];
     newCard.answer = e.target.value;
     const newDeck = [...deck];
     newDeck.splice(i, 1, newCard);
@@ -72,7 +79,7 @@ const EditDeckPage = () => {
                 className="form-input-box"
                 type="text"
                 value={card.question}
-                onChange={(e) => changeCard(e, i + 1)}
+                onChange={(e) => changeQuestion(e, i)}
               ></textarea>
             </div>
             <div className="form-input-div">
@@ -81,7 +88,7 @@ const EditDeckPage = () => {
                 className="form-input-box"
                 type="text"
                 value={card.answer}
-                onChange={(e) => changeCard(e, i + 1)}
+                onChange={(e) => changeAnswer(e, i)}
               ></textarea>
             </div>
             <div>
