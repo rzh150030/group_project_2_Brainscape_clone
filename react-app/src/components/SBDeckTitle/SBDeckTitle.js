@@ -5,8 +5,7 @@ import { useHistory } from "react-router-dom";
 import * as deckActions from "../../store/decks";
 import * as cardActions from "../../store/cards";
 
-
-const SBDeckTitle = ({addDeck, page}) => {
+const SBDeckTitle = ({ addDeck, page }) => {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const storeDecks = useSelector((state) => state.userDecks.decks);
@@ -20,7 +19,6 @@ const SBDeckTitle = ({addDeck, page}) => {
     if (sessionUser || addDeck) {
       getDeckTitles(sessionUser.id);
     }
-
   }, [dispatch, sessionUser, addDeck]);
 
   useEffect(() => {

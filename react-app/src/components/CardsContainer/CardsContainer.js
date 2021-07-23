@@ -11,9 +11,9 @@ const CardsContainer = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const pageLoaded = async () => await dispatch(cardActions.getDeckCards(deckId));
-    pageLoaded();
-  }, [])
+    const pageLoaded = () => dispatch(cardActions.getDeckCards(deckId));
+     if (deckId) pageLoaded();
+  }, [deckId, dispatch])
 
 
   useEffect(() => {

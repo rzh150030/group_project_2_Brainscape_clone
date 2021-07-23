@@ -1,26 +1,40 @@
 import "./MyDecksSBTitle.css";
 import { useSelector, useDispatch } from "react-redux";
-import {  useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import * as deckActions from "../../store/decks";
-import SBDeckTitle from "../SBDeckTitle/SBDeckTitle"
+import SBDeckTitle from "../SBDeckTitle/SBDeckTitle";
+import Modal from "../Modal";
+import AddDeckModal from "../AddDeckModal/AddDeckModal";
 
-const MyDecksSBTitle = ({page}) => {
+const MyDecksSBTitle = ({ page, modalToggle }) => {
+  const [showModal, setShowModal] = useState(false);
   const sessionUser = useSelector((state) => state.session.user);
-  const storeDecks = useSelector(state => state.userDecks.decks)
-  const [addDeck, setAddDeck] = useState(false)
+  const storeDecks = useSelector((state) => state.userDecks.decks);
+  const [addDeck, setAddDeck] = useState(false);
+  const history = useHistory();
 
-  useEffect(()=> {
+  useEffect(() => {
     return setTimeout(() => {
-      setAddDeck(false)
+      setAddDeck(false);
     }, 300);
-  },[storeDecks])
+  }, [storeDecks]);
 
   const addNewDeck = (e) => {
     e.preventDefault();
-    deckActions.addNewDeck({ title: "New Deck", category: 1})
-    setAddDeck(true)
+
+    setShowModal(true);
+    setAddDeck(true);
   };
 
+  const onClose = () => {
+    setShowModal(false);
+    history.push("/decks-page");
+  };
+
+  if (modalToggle) {
+    setShowModal(true);
+  }
   return (
     <>
       {sessionUser ? (
@@ -35,6 +49,11 @@ const MyDecksSBTitle = ({page}) => {
               </button>
             </div>
           </div>
+          {showModal === true && (
+            <Modal onClose={onClose}>
+              <AddDeckModal setShowModal={setShowModal} />
+            </Modal>
+          )}
           <hr></hr>
         </>
       ) : (
@@ -47,7 +66,7 @@ const MyDecksSBTitle = ({page}) => {
           <hr></hr>
         </>
       )}
-      <SBDeckTitle page={page} addDeck={addDeck}/>
+      <SBDeckTitle page={page} addDeck={addDeck} />
     </>
   );
 };

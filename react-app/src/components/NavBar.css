@@ -29,6 +29,7 @@ li {
   justify-content: center;
   align-items: center;
   height: 100%;
+
 }
 
 #search-bar button {
@@ -42,6 +43,8 @@ li {
   color: white;
   letter-spacing: 1px;
   padding: 5px 5px;
+  box-shadow: 1px 1px black;
+
 }
 .active button{
   background-color: #e89b64;
@@ -56,4 +59,12 @@ li {
   letter-spacing: 1px;
   font-size: 15px;
   padding: 5px 5px;
+  box-shadow: 1px 1px black;
+
+}
+
+#logo-nav-link {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }

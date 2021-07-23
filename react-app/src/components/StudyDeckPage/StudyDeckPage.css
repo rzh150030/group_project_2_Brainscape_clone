@@ -10,7 +10,101 @@
   overflow: hidden;
 }
 
-#study-card-container {
+#study-card-container-grid {
   grid-area: indicards;
-  background-color: wheat;
+  display: grid;
+  grid-template-columns: 1fr 11fr 1fr;
+  grid-template-areas: "leftbutton main rightbutton";
+}
+
+.study-card-container {
+  grid-area: main;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+#previous-card-button-div {
+  grid-area: leftbutton;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#next-card-button-div {
+  grid-area: rightbutton;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#previous-card-button-div button, #next-card-button-div button {
+  border-radius: 15px;
+  height: 40px;
+  width: 50px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.study-card-div {
+  position: absolute;
+  width: 100%;
+  height: 80%;
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  margin-bottom: 91px;
+}
+
+.study-card-div.flip {
+  transform: rotateY(180deg);
+}
+
+.the-front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background-color: rebeccapurple;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 60px;
+}
+
+.the-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background-color: rebeccapurple;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  transform: rotateY(180deg);
+}
+
+#flip-button-div {
+  position: absolute;
+  /* bottom: 4rem; */
+  bottom: 45px;
+  width: 70%;
+  height: 50px;
+}
+
+#flip-button {
+  height: 100%;
+  width: 100%;
+  box-shadow: 1px 1px black;
+  cursor: pointer;
+  letter-spacing: 1px;
+  font-size: 35px;
+  border-radius: 15px;
 }
