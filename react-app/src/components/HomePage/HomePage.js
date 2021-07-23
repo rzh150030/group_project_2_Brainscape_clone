@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux";
 import * as sessionActions from "../../store/session";
 import background1 from "../../images/pexels-vlada-karpovich-4050296.jpg";
 import background2 from "../../images/pexels-christina-morillo-1181676.jpg";
-// import background3 from "../../images/pexels-pexels-pixabay-270408.jpg";
 import background3 from "../../images/pexels-olia-danilevich-4974920.jpg";
 import background4 from "../../images/programmer-5863772.jpg";
 import background5 from "../../images/pexels-cottonbro-4709291.jpg";
@@ -51,9 +50,9 @@ const HomePage = () => {
   }, [bgImage]);
 
   const loginDemoUser = async () => {
-    await dispatch(
-      sessionActions.login({ email: "demo@aa.io", password: "password" })
-    );
+    const email = "demo@aa.io";
+    const password = "password";
+    await dispatch(sessionActions.login(email, password));
   };
 
   const homePageStyle = {

@@ -16,16 +16,24 @@ const LoginForm = ({ setForm, setShowModal }) => {
 
   const onLogin = async (e) => {
     e.preventDefault();
-    if(demoUser){
-      setEmail("demo@aa.io")
-      setPassword("password")
-    }
+
     const data = await dispatch(login(email, password));
+
+    console.log(email,password)
+
     if (data) {
       setErrors(data);
     }
     if(errors.length === 0)setShowModal(false);
   };
+
+  const demoLogin = async() => {
+    setDemoUser(true)
+    setEmail("demo@aa.io")
+    setPassword("password")
+
+    await dispatch(login(email, password))
+  }
 
   const updateEmail = (e) => {
     setEmail(e.target.value);
@@ -96,7 +104,7 @@ const LoginForm = ({ setForm, setShowModal }) => {
         <button type="submit">Login</button>
       </div>
       <div id="demo-button-div">
-        <button onClick={()=> setDemoUser(true)} type="submit">Demo</button>
+        <button onClick={demoLogin} type="button">Demo</button>
       </div>
     </form>
   );

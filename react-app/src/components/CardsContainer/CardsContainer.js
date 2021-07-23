@@ -12,8 +12,8 @@ const CardsContainer = () => {
 
   useEffect(() => {
     const pageLoaded = async () => await dispatch(cardActions.getDeckCards(deckId));
-    pageLoaded();
-  }, [])
+     if (deckId) pageLoaded();
+  }, [deckId, dispatch])
 
 
   useEffect(() => {
