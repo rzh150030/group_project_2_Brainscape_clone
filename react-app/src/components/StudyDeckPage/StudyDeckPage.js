@@ -11,18 +11,24 @@ const StudyDeckPage = () => {
   const currentDeck = useSelector((state) => state.currentDeck)
   const [currentCard, setCurrentCard] = useState(0)
 
-  const [cardState, setCardState] = useState('question')
+
 
   if (currentDeck.length === 0) {
     return <Redirect to="/decks-page" />
   }
 
+
   const questionText = currentDeck[currentCard].question;
   const answerText = currentDeck[currentCard].answer;
 
+
+
+  // const handleClickNext = () => {
+  //   //
+  // }
+
+
   const handleClick = () => {
-    // if (cardState === "question") setCardState("answer")
-    // if (cardState === "answer") setCardState("question")
 
     const studyCardContainer = document.querySelector(".study-card-div");
     studyCardContainer.classList.toggle("flip");
