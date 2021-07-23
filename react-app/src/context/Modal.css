@@ -25,7 +25,6 @@ div#modal-content {
   height: 70vh;
   width: 40vw;
   padding: 10px;
-  background-color: red;
 }
 
 form{
@@ -43,14 +42,18 @@ form{
   border-radius: .5rem;
   box-shadow: 5px 5px #1b8bbf93, -5px 5px #1b8bbf93, 5px -5px #1b8bbf93, -5px -5px #1b8bbf93;
 }
-
+/* Form Logo styling */
 form#login-form > div#login-header > #logo-div > img{
-  margin: 100px 250px 0 0;
-  transform: scale(2.7);
+  margin: 100px 20px 0 0;
+  transform: scale(2.1);
 }
 form#signup-form > div#signup-header > #logo-div > img{
-  margin: 100px 250px 0 0;
-  transform: scale(2.7);
+  margin: 100px 20px 0 0;
+  transform: scale(2.1);
+}
+form#add-deck-form > div#add-deck-header > #logo-div > img{
+  margin: 100px 20px 0 0;
+  transform: scale(2.1);
 }
 
 form div {
@@ -80,11 +83,11 @@ form div >label{
 }
 
 form > div{
-  height: 1.5em;
+  height: 3rem;
   border-radius: .3rem;
 }
 
-form div > input{
+form div > input, form div > select{
   border-radius: 5px;
   height:40px;
   width: 50%;
@@ -92,6 +95,7 @@ form div > input{
   font-size: large;
   padding: 10px;
   font-family: sans-serif;
+  margin-bottom: 20px;
 }
 
 div#login-form-title {
@@ -168,7 +172,7 @@ div#demo-button-div {
   justify-content: center;
   width: 100%;
   height: 4vh;
-  margin-bottom: 45px;;
+  /* margin-bottom: 45px; */
 }
 
 div#demo-button-div  button {
@@ -183,4 +187,12 @@ div#demo-button-div  button {
 #add-deck-title-div, #add-deck-category-div {
   height: 10vh;
   margin: 5px;
+}
+
+div#category-select-div {
+  width: 100%;
+}
+
+div#category-select-div select option{
+  text-align: center;
 }

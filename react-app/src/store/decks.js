@@ -28,8 +28,11 @@ export const addNewDeck = (newDeck) => async(dispatch) => {
   })
   if (response.ok) {
     const {deck} = await response.json();
-    console.log(deck.userId);
+
     dispatch(getUserDecks(deck.userId))
+  }
+  else {
+
   }
 
 }

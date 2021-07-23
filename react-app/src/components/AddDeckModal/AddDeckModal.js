@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { Redirect, useHistory, Link } from "react-router-dom";
-import * as deckActions from "../../store/decks"
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import * as deckActions from "../../store/decks";
 import "./AddDeckModal.css";
 import Logo from "../Logo/Logo";
 
@@ -9,19 +9,16 @@ const AddDeckModal = ({ setForm, setShowModal }) => {
   const [errors, setErrors] = useState([]);
   const [title, setTitle] = useState("");
   const [categoryId, setCategoryId] = useState(1);
-  // const user = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
-  // const userDecks = useSelector((state) => state.userDecks.decks);
-  const history = useHistory()
+  const sessionUser = useSelector(state => state.session.user)
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    console.log("title",title)
-    console.log("categoryId",categoryId)
-    const data = await dispatch(deckActions.addNewDeck({title, "category":categoryId}));
-
+    const data = await dispatch(
+      deckActions.addNewDeck({ title, category: categoryId, userId: sessionUser.id  })
+    );
     if (data) {
-      setErrors(data);
+      setErrors(data.errors);
     }
     if (errors.length === 0) setShowModal(false);
   };
@@ -33,15 +30,6 @@ const AddDeckModal = ({ setForm, setShowModal }) => {
   const updateCategoryId = (e) => {
     setCategoryId(e.target.value);
   };
-
-  // if (user) {
-  //   if (userDecks && userDecks.length > 0) {
-  //     const id = userDecks[0].id;
-  //     return <Redirect to={`/deck-page/${id}`} />;
-  //   }
-
-  //   return <Redirect to="/decks-page" />;
-  // }
 
   return (
     <form id="add-deck-form" onSubmit={onSubmit}>
@@ -72,32 +60,28 @@ const AddDeckModal = ({ setForm, setShowModal }) => {
         <div>
           <label htmlFor="category">Category</label>
         </div>
-        <select
-          name="category"
-          placeholder="Password"
-          value={categoryId}
-          onChange={updateCategoryId}
-        >
-          <option  value={1}>Java</option>
-          <option  value={2}>Python</option>
-          <option  value={3}>CMS</option>
-          <option  value={4}>DevOps</option>
-          <option  value={5}>Docker</option>
-          <option  value={6}>Html</option>
-          <option  value={7}>JavaScript</option>
-          <option  value={8}>Kubernetes</option>
-          <option  value={9}>Linux</option>
-          <option  value={10}>PHP</option>
-        </select>
+        <div id="category-select-div">
+          <select
+            name="category"
+            placeholder="Password"
+            value={categoryId}
+            onChange={updateCategoryId}
+          >
+            <option value={1}>Java</option>
+            <option value={2}>Python</option>
+            <option value={3}>CMS</option>
+            <option value={4}>DevOps</option>
+            <option value={5}>Docker</option>
+            <option value={6}>Html</option>
+            <option value={7}>JavaScript</option>
+            <option value={8}>Kubernetes</option>
+            <option value={9}>Linux</option>
+            <option value={10}>PHP</option>
+          </select>
+        </div>
       </div>
       <Link to="/signup">
-        <p
-          onClick={() => {
-            setForm("signup");
-          }}
-        >
-          Don't have an account? Click here to sign up!
-        </p>
+
       </Link>
       <div id="add-deck-button-div">
         <button type="submit">add-deck</button>
