@@ -7,15 +7,20 @@ import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
+import HomePage from './components/HomePage/HomePage'
+import EditDeckPage from './components/EditDeckPage/EditDeckPage';
 import { authenticate } from './store/session';
+
+import { DecksPage } from './components/DecksPage/DecksPage';
+import StudyDeckPage from './components/StudyDeckPage/StudyDeckPage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    (async() => {
-      await dispatch(authenticate());
+    (() => {
+      dispatch(authenticate());
       setLoaded(true);
     })();
   }, [dispatch]);
@@ -28,20 +33,26 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
-        <Route path='/login' exact={true}>
-          <LoginForm />
-        </Route>
-        <Route path='/sign-up' exact={true}>
-          <SignUpForm />
-        </Route>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
+        <Route path='/' exact={true} >
+          <HomePage/>
+        </Route>
+        <Route path='/decks-page' exact={true}>
+          <DecksPage />
+        </Route>
+        <Route path='/deck-page/:deckId' exact={true}>
+          <DecksPage />
+        </Route>
+        <ProtectedRoute path="/edit-deck/:deckId" exact={true}>
+          <EditDeckPage/>
+        </ProtectedRoute>
+        <ProtectedRoute path="/study-deck-page/:deckId">
+          <StudyDeckPage />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

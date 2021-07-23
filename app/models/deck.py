@@ -4,7 +4,7 @@ from .db import db
 class Deck(db.Model):
     __tablename__ = 'decks'
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(20), nullable=False, unique=True)
+    title = db.Column(db.String(20), nullable=False)
     categoryId = db.Column(db.Integer, db.ForeignKey('categories.id'), nullable=False)
     userId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 

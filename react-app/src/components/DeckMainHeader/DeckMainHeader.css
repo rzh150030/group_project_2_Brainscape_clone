@@ -1,0 +1,42 @@
+#deck-main-header-div {
+  grid-area: deckheader;
+  margin-top: 100px;
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+  "langlogo langname quote"
+  "langlogo studybutton quote"
+  ;
+  /* border-bottom: 1px solid black; */
+}
+
+#language-logo-div {
+  grid-area: langlogo;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#language-name-div {
+  grid-area: langname;
+}
+
+#study-deck-button-div {
+  grid-area: studybutton;
+}
+
+#quote-div {
+  grid-area: quote;
+}
+
+#study-deck-button-div button{
+  background-color: rgb(94, 212, 16);
+  width: 175px;
+  cursor: pointer;
+  border: none;
+  border-radius:15px;
+  letter-spacing: 1px;
+  font-size: 15px;
+  padding: 5px 5px;
+}

@@ -1,0 +1,39 @@
+#deck-title-div p {
+  color: white;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+#deck-title-div {
+  height: 50%;
+  overflow-y: auto;
+}
+
+#deck-title-div ul {
+  display: contents;
+  justify-content:center;
+  width: 100%;
+}
+
+#deck-title-div #sidebar-ul {
+  list-style-type: none;
+  cursor: pointer;
+  color: white;
+  font-size: 30px;
+}
+
+#sidebar-ul li {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: 5px;
+}
+
+#sidebar-ul li:focus {
+  list-style-type: disc;
+}
+
+#sidebar-ul li:hover {
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+}
