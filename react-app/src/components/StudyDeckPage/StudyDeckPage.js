@@ -33,40 +33,6 @@ const StudyDeckPage = () => {
   // }, [cardState])
 
   return (
-    // <div id="study-page-outer-main-div">
-    //   <SideBar page={page} />
-    //   <DeckMainHeader />
-
-
-    //   <div id="study-card-container">
-    //     {cardState === "question" ?
-    //     <>
-    //       <div className="study-card-div">
-    //       <div>{questionText}</div>
-    //     </div>
-
-    //     <div id="study-card-reveal-answer-button-div">
-    //       <button id="study-card-reveal-answer-button" onClick={handleClick}>View Answer</button>
-    //     </div>
-    //     </>
-    //     :
-    //     <>
-    //       <div className="study-card-div">
-    //       <div>{answerText}</div>
-    //     </div>
-
-    //     <div id="study-card-reveal-question-button-div">
-    //       <button id="study-card-reveal-question-button" onClick={handleClick}>View Question</button>
-    //     </div>
-    //     </>
-    //     }
-    //   </div>
-
-    // </div>
-
-    // comment //////////////////////////////
-
-
 
     <div id="study-page-outer-main-div">
       <SideBar page={page} />
@@ -74,7 +40,11 @@ const StudyDeckPage = () => {
 
 
 
+    <div id="study-card-container-grid">
 
+      <div id="previous-card-button-div">
+        <button>Previous</button>
+      </div>
 
 
     <div className="study-card-container">
@@ -99,7 +69,12 @@ const StudyDeckPage = () => {
     </div>
 
 
+      <div id="next-card-button-div">
+        <button>Next</button>
+      </div>
 
+
+    </div>
 
 
 
