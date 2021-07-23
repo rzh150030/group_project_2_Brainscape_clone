@@ -38,9 +38,11 @@ export const updateDeck = (data, deckId) => async (dispatch) => {
     },
     body: JSON.stringify(data)
   });
+  console.log("FFFFFFdddd", data)
 
   if (response.ok) {
     const cards = await response.json();
+    console.log("FFFFFF", cards)
     dispatch(updateDeckCards(cards));
   }
 }
