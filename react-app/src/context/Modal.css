@@ -25,6 +25,7 @@ div#modal-content {
   height: 70vh;
   width: 40vw;
   padding: 10px;
+  background-color: red;
 }
 
 form{
@@ -109,6 +110,14 @@ div#signup-form-title {
   margin: 50px 0 0 0 ;
   color: black;
 }
+div#add-deck-form-title {
+  text-align:right;
+  font-size: 35px;
+  font-weight: bold;
+  width:100%;
+  margin: 50px 0 0 0 ;
+  color: black;
+}
 
 div#login-button-div {
   display: flex;
@@ -117,6 +126,12 @@ div#login-button-div {
   height: 4vh;
 }
 div#signup-button-div {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 4vh;
+}
+div#add-deck-button-div {
   display: flex;
   justify-content: center;
   width: 100%;
@@ -132,6 +147,14 @@ div#login-button-div  button {
   font-size: x-large;
 }
 div#signup-button-div  button {
+  height: 100%;
+  width: 50%;
+  border: solid 2px rgba(0, 0, 0, 0.158);
+  background-color: #e6e6e6;
+  border-radius: 50px;
+  font-size: x-large;
+}
+div#add-deck-button-div  button {
   height: 100%;
   width: 50%;
   border: solid 2px rgba(0, 0, 0, 0.158);
@@ -157,7 +180,7 @@ div#demo-button-div  button {
   font-size: x-large;
 }
 
-#login-password-div, #login-email-div {
+#add-deck-title-div, #add-deck-category-div {
   height: 10vh;
   margin: 5px;
 }

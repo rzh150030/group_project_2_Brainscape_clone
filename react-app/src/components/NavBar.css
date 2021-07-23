@@ -62,3 +62,9 @@ li {
   box-shadow: 1px 1px black;
 
 }
+
+#logo-nav-link {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}

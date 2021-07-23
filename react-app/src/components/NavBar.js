@@ -33,7 +33,7 @@ const NavBar = ({ modalToggle }) => {
   const onClose = () => {
     setShowModal(false);
     setForm("");
-    history.push('/')
+    history.push("/");
   };
 
   if (modalToggle) {
@@ -42,7 +42,9 @@ const NavBar = ({ modalToggle }) => {
   return (
     <>
       <nav>
-        <Logo />
+        <NavLink id="logo-nav-link" to="/" exact={true} activeClassName="active">
+          <Logo />
+        </NavLink>
         <SearchBar />
         <ul>
           <li>
