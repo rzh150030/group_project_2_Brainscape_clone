@@ -3,22 +3,33 @@ import { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getDeckCards, updateDeck } from "../../store/cards";
+import { getUserDecks } from "../../store/decks";
 
 const EditDeckPage = () => {
+  const { deckId } = useParams();
   const dispatch = useDispatch();
+  const user = useSelector(state => state.session.user)
   const cards = useSelector(state => state.cards)
+  const title = useSelector(state => {
+    if (state.userDecks.decks) {
+      const deck = state.userDecks.decks.filter(deck => deck.id === Number(deckId))
+      return deck[0].title
+    }
+  })
+  
   const [deck, setDeck] = useState(cards);
   const history = useHistory();
 
-  const { deckId } = useParams();
 
   useEffect(() => {
     dispatch(getDeckCards(deckId));
+    dispatch(getUserDecks(user.id));
   }, []);
 
   useEffect(() => {
     setDeck(cards);
   }, [cards]);
+
 
   const changeQuestion = (e, i) => {
     let newCard = deck[i];
@@ -64,7 +75,7 @@ const EditDeckPage = () => {
 
   return (
     <div id="edit-deck-page-main-div">
-      <h1 id="flash-cards-title"> {`Flash Cards in "Deck Title"`}</h1>
+      <h1 id="flash-cards-title"> {`Flash Cards in "${title}"`}</h1>
       <div id="question-answer-div">
         <h2 id="question-title-div">Question</h2>
         <h2 id="answer-title-div">Answer</h2>
@@ -97,9 +108,7 @@ const EditDeckPage = () => {
           </div>
         ))}
       </form>
-      <button onClick={newCardInput}>
-          Add New Card
-      </button>
+      <i class="fas fa-plus-circle" onClick={newCardInput}></i>
       <button onClick={submitDeck}>
         Save Deck
       </button>
