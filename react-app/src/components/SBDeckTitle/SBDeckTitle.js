@@ -14,8 +14,8 @@ const SBDeckTitle = ({addDeck, page}) => {
   const history = useHistory();
 
   useEffect(() => {
-    const getDeckTitles = async (userId) => {
-      await dispatch(deckActions.getUserDecks(userId));
+    const getDeckTitles = (userId) => {
+      dispatch(deckActions.getUserDecks(userId));
     };
     if (sessionUser || addDeck) {
       getDeckTitles(sessionUser.id);
@@ -27,13 +27,11 @@ const SBDeckTitle = ({addDeck, page}) => {
     setUserDecks(storeDecks);
   }, [storeDecks]);
 
-  const getDeckCards = async (e) => {
+  const getDeckCards = (e) => {
     e.preventDefault();
-    await dispatch(cardActions.getDeckCards(e.target.id));
+    dispatch(cardActions.getDeckCards(e.target.id));
     history.push(`/deck-page/${e.target.id}`);
   };
-
-  // const showDeck =
 
   return (
     <>

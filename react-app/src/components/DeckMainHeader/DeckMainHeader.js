@@ -23,7 +23,7 @@ const DeckMainHeader = () => {
         <img src={logo} alt="language-logo"></img>
       </div>
       <div id="language-name-div">
-        <h1>{category.name}</h1>
+        <h1>{category?.name ? category.name : "Select a deck"}</h1>
       </div>
       <div id="study-deck-button-div">
         <button>Study Deck</button>
