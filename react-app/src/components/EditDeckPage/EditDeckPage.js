@@ -64,7 +64,7 @@ const EditDeckPage = () => {
 
   return (
     <div id="edit-deck-page-main-div">
-      <h1 id="flash-cards-title"> Flash Cards in "Deck Title"</h1>
+      <h1 id="flash-cards-title"> {`Flash Cards in "Deck Title"`}</h1>
       <div id="question-answer-div">
         <h2 id="question-title-div">Question</h2>
         <h2 id="answer-title-div">Answer</h2>
