@@ -11,21 +11,43 @@ const StudyDeckPage = () => {
   const currentDeck = useSelector((state) => state.currentDeck)
   const [currentCard, setCurrentCard] = useState(0)
 
+  let question;
+  let answer;
 
-
-  if (currentDeck.length === 0) {
-    return <Redirect to="/decks-page" />
+  if (currentDeck[currentCard]) {
+    question = currentDeck[currentCard].question;
+    answer = currentDeck[currentCard].answer;
   }
 
+  const deckLength = currentDeck.length;
 
-  const questionText = currentDeck[currentCard].question;
-  const answerText = currentDeck[currentCard].answer;
+  const handleClickNext = () => {
 
+    if (currentCard < deckLength - 1) {
+      setCurrentCard((prev) => prev + 1)
 
+      question = currentDeck[currentCard].question;
+      answer = currentDeck[currentCard].answer;
+    }
+    else {
+      setCurrentCard(0)
+    }
 
-  // const handleClickNext = () => {
-  //   //
-  // }
+  }
+
+  const handleClickPrevious = () => {
+
+    if (currentCard >= 1 && currentCard < deckLength) {
+      setCurrentCard((prev) => prev - 1)
+
+      question = currentDeck[currentCard].question;
+      answer = currentDeck[currentCard].answer;
+    }
+    else {
+      setCurrentCard(deckLength - 1)
+    }
+
+  }
 
 
   const handleClick = () => {
@@ -35,8 +57,12 @@ const StudyDeckPage = () => {
   }
 
   // useEffect(() => {
+  //   // console.log(currentCard);
+  // }, [currentCard])
 
-  // }, [cardState])
+  if (currentDeck.length === 0) {
+    return <Redirect to="/decks-page" />
+  }
 
   return (
 
@@ -49,7 +75,9 @@ const StudyDeckPage = () => {
     <div id="study-card-container-grid">
 
       <div id="previous-card-button-div">
-        <button>Previous</button>
+        <button onClick={handleClickPrevious}>
+        <i class="fas fa-less-than"></i>
+        </button>
       </div>
 
 
@@ -59,11 +87,11 @@ const StudyDeckPage = () => {
 
 
         <div className="the-front">
-          Front of Card
+          {question}
         </div>
 
         <div className="the-back">
-        Back of Card
+          {answer}
         </div>
 
 
@@ -76,7 +104,9 @@ const StudyDeckPage = () => {
 
 
       <div id="next-card-button-div">
-        <button>Next</button>
+        <button onClick={handleClickNext}>
+        <i className="fas fa-greater-than"></i>
+        </button>
       </div>
 
 
