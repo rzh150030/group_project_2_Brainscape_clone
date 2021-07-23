@@ -16,8 +16,11 @@ import background11 from "../../images/pexels-vlada-karpovich-4050350.jpg";
 
 import Logo from "../Logo/Logo";
 import "./HomePage.css";
+import { useSelector } from "react-redux";
 
 const HomePage = () => {
+  const sessionUser = useSelector((state) => state.session.user)
+
   const backgroundsArr = [
     background1,
     background2,
@@ -78,7 +81,7 @@ const HomePage = () => {
           <Logo />
         </div>
         <h2>Flashcards for serious programmers</h2>
-        <div id="home-page-buttons-div">
+        {!sessionUser && <div id="home-page-buttons-div">
           <div>
             <Link to="/decks-page">
               <button
@@ -89,7 +92,7 @@ const HomePage = () => {
               </button>
             </Link>
           </div>
-        </div>
+        </div>}
       </div>
     </div>
   );

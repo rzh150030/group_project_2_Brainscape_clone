@@ -75,7 +75,6 @@
   backface-visibility: hidden;
   background-color: rebeccapurple;
   color: white;
-  /* transform: rotateY(180deg); */
 }
 
 .the-back {
