@@ -45,7 +45,7 @@ def user_decks(id):
 
 # Create deck
 @deck_routes.route("/create", methods=["POST"])
-# @login_required
+@login_required
 def create_deck():
     form = DeckForm()
     form["csrf_token"].data = request.cookies["csrf_token"]
