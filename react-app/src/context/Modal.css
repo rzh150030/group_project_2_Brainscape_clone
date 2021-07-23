@@ -7,7 +7,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--main-translucent-grey);
+
 }
 
 #modal-background {
@@ -18,20 +18,13 @@
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.7);
 }
-.modal-logo {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
-}
 
-#modal-content {
+div#modal-content {
   display: flex;
   position: absolute;
-  background-color:white;
-  border-radius: .3rem;
+  height: 70vh;
+  width: 40vw;
+  padding: 10px;
 }
 
 form{
@@ -39,53 +32,132 @@ form{
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  width: 33vw;
+  width: 100%;
   min-height: 40vh;
   text-align: left;
   margin: 5px;
-  color: white;
-  text-shadow: -2px 0 var(--main-shadow-grey), 0 2px var(--main-shadow-grey), 2px 0 var(--main-shadow-grey), 0 -2px var(--main-shadow-grey);
-  background-color: rgba(76, 126, 218, 0.138);
-
+  padding: 20px;
+  color: black;
+  background-color: #e6e6e6;
+  border-radius: .5rem;
+  box-shadow: 5px 5px #1b8bbf93, -5px 5px #1b8bbf93, 5px -5px #1b8bbf93, -5px -5px #1b8bbf93;
 }
 
-form > label{
-  margin: 5px;
-  font-size: large;
-  text-align: center;
+form#login-form > div#login-header > #logo-div > img{
+  margin: 100px 250px 0 0;
+  transform: scale(2.7);
+}
+form#signup-form > div#signup-header > #logo-div > img{
+  margin: 100px 250px 0 0;
+  transform: scale(2.7);
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  margin: 20px
+}
+
+
+form label{
+  display: flex;
+  font-size: 20px;
+  font-weight: bold;
+  width: 100%;
+  background-color: #e6e6e6;
+  border-radius: .3rem;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+form div >label{
+  margin: 20px 0 0 0;
+}
+
+form > div{
+  height: 1.5em;
+  border-radius: .3rem;
+}
+
+form div > input{
+  border-radius: 5px;
+  height:40px;
   width: 50%;
-  background-color: var(--main-translucent-grey);
-  border-radius: .3rem;
-  box-shadow: 1px 1px var(--main-shadow-grey);
-  border: 1px solid var(--main-shadow-grey);
-
-}
-form > input{
-  margin: 5px;
-  height: 1.5rem;
-  border-radius: .3rem;
-  border: 1px solid var(--main-shadow-grey);
-  box-shadow: 1px 1px var(--main-shadow-grey);
-
+  border: 1px solid black;
+  font-size: large;
+  padding: 10px;
+  font-family: sans-serif;
 }
 
-form h1{
-  text-align: center;
-  width: 70%;
-  background-color: var(--main-translucent-grey);
-  border-radius: .3rem;
-  box-shadow: 1px 1px var(--main-shadow-grey);
-  border: 1px solid var(--main-shadow-grey);
-
-
+div#login-form-title {
+  text-align:right;
+  font-size: 35px;
+  font-weight: bold;
+  width:100%;
+  margin: 50px 0 0 0 ;
+  color: black;
+}
+div#signup-form-title {
+  text-align:right;
+  font-size: 35px;
+  font-weight: bold;
+  width:100%;
+  margin: 50px 0 0 0 ;
+  color: black;
 }
 
-form > button {
-  height: 30px;
-  width: 100px;
-  margin: 20px 20px;
+div#login-button-div {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 4vh;
+}
+div#signup-button-div {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 4vh;
+}
+
+div#login-button-div  button {
+  height: 100%;
+  width: 50%;
   border: solid 2px rgba(0, 0, 0, 0.158);
-  border-radius: .3rem;
-  background-color: var(--main-translucent-grey);
+  background-color: #e6e6e6;
+  border-radius: 50px;
+  font-size: x-large;
+}
+div#signup-button-div  button {
+  height: 100%;
+  width: 50%;
+  border: solid 2px rgba(0, 0, 0, 0.158);
+  background-color: #e6e6e6;
+  border-radius: 50px;
+  font-size: x-large;
+}
 
+div#demo-button-div {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 4vh;
+  margin-bottom: 45px;;
+}
+
+div#demo-button-div  button {
+  height: 100%;
+  width: 50%;
+  border: solid 2px rgba(0, 0, 0, 0.158);
+  background-color: #e6e6e6;
+  border-radius: 50px;
+  font-size: x-large;
+}
+
+#login-password-div, #login-email-div {
+  height: 10vh;
+  margin: 5px;
 }
