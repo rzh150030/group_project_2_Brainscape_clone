@@ -1,13 +1,11 @@
 const GET_USER_DECKS = "decks/GET_USER_DECKS";
-const ADD_DECK = "decks/ADD_DECK";
 const REMOVE_DECK = "decks/REMOVE_DECK";
+const ERROR = "decks/ERROR";
 
 export const getUserDecksAction = (decks) => ({
   type: GET_USER_DECKS,
-  payload: {...decks},
+  payload: { ...decks },
 });
-
-
 
 export const getUserDecks = (userId) => async (dispatch) => {
   const response = await fetch(`/api/decks/user/${userId}`);
@@ -18,24 +16,31 @@ export const getUserDecks = (userId) => async (dispatch) => {
   }
 };
 
-export const addNewDeck = (newDeck) => async(dispatch) => {
+export const addNewDeck = (newDeck) => async (dispatch) => {
   const response = await fetch(`/api/decks/create`, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      "CONTENT-TYPE": "application/json"
+      "CONTENT-TYPE": "application/json",
     },
-    body: JSON.stringify(newDeck)
-  })
+    body: JSON.stringify(newDeck),
+  });
   if (response.ok) {
-    const {deck} = await response.json();
+    const { deck } = await response.json();
 
-    dispatch(getUserDecks(deck.userId))
+    dispatch(getUserDecks(deck.userId));
   }
-  else {
+};
 
+export const removeDeck = ({deckId, userId}) => async (dispatch) => {
+
+  const response = await fetch(`/api/decks/${deckId}`, {
+    method: "DELETE",
+  });
+
+  if (response.ok) {
+    dispatch(getUserDecks(userId));
   }
-
-}
+};
 
 const initialState = {};
 

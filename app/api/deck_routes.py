@@ -63,7 +63,7 @@ def create_deck():
 @login_required
 def delete_deck(id):
     deck = Deck.query.get(id)
-    if deck.userId == current_user.id:
+    if int(deck.userId) == current_user.id:
         db.session.delete(deck)
         db.session.commit()
         return {"deck": deck.to_dict()}

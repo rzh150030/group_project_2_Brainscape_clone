@@ -14,10 +14,10 @@ const LoginForm = ({ setForm, setShowModal }) => {
   const dispatch = useDispatch();
   const userDecks = useSelector((state) => state.userDecks.decks);
 
-  const onLogin = async (e) => {
+  const onLogin = (e) => {
     e.preventDefault();
 
-    const data = await dispatch(login(email, password));
+    const data = dispatch(login(email, password));
 
     console.log(email,password)
 
@@ -27,12 +27,12 @@ const LoginForm = ({ setForm, setShowModal }) => {
     if(errors.length === 0)setShowModal(false);
   };
 
-  const demoLogin = async() => {
+  const demoLogin = () => {
     setDemoUser(true)
     setEmail("demo@aa.io")
     setPassword("password")
 
-    await dispatch(login(email, password))
+    dispatch(login(email, password))
   }
 
   const updateEmail = (e) => {

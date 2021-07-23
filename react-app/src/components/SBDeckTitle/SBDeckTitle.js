@@ -5,8 +5,7 @@ import { useHistory } from "react-router-dom";
 import * as deckActions from "../../store/decks";
 import * as cardActions from "../../store/cards";
 
-
-const SBDeckTitle = ({addDeck, page}) => {
+const SBDeckTitle = ({ addDeck, page }) => {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const storeDecks = useSelector((state) => state.userDecks.decks);
@@ -14,23 +13,22 @@ const SBDeckTitle = ({addDeck, page}) => {
   const history = useHistory();
 
   useEffect(() => {
-    const getDeckTitles = async (userId) => {
-      await dispatch(deckActions.getUserDecks(userId));
+    const getDeckTitles = (userId) => {
+      dispatch(deckActions.getUserDecks(userId));
     };
     if (sessionUser || addDeck) {
       getDeckTitles(sessionUser.id);
     }
-
   }, [dispatch, sessionUser, addDeck]);
 
   useEffect(() => {
     setUserDecks(storeDecks);
   }, [storeDecks]);
 
-  const getDeckCards = async (e) => {
+  const getDeckCards = (e) => {
     e.preventDefault();
-    console.log(e);
-    await dispatch(cardActions.getDeckCards(e.target.id));
+
+    dispatch(cardActions.getDeckCards(e.target.id));
     history.push(`/deck-page/${e.target.id}`);
   };
 

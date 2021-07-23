@@ -12,9 +12,9 @@ const AddDeckModal = ({ setForm, setShowModal }) => {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user)
 
-  const onSubmit = async (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
-    const data = await dispatch(
+    const data = dispatch(
       deckActions.addNewDeck({ title, category: categoryId, userId: sessionUser.id  })
     );
     if (data) {

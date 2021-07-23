@@ -52,10 +52,10 @@ const HomePage = () => {
     };
   }, [bgImage]);
 
-  const loginDemoUser = async () => {
+  const loginDemoUser = () => {
     const email = "demo@aa.io";
     const password = "password";
-    await dispatch(sessionActions.login(email, password));
+    dispatch(sessionActions.login(email, password));
   };
 
   const homePageStyle = {
