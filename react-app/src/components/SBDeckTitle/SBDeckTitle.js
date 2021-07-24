@@ -27,12 +27,9 @@ const SBDeckTitle = ({ addDeck, page }) => {
 
   const getDeckCards = (e) => {
     e.preventDefault();
-
     dispatch(cardActions.getDeckCards(e.target.id));
     history.push(`/deck-page/${e.target.id}`);
   };
-
-  // const showDeck =
 
   return (
     <>

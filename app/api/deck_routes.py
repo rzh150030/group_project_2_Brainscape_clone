@@ -50,7 +50,7 @@ def create_deck():
     form = DeckForm()
     form["csrf_token"].data = request.cookies["csrf_token"]
     if form.validate_on_submit():
-        deck = Deck( title=form.data["title"], categoryId=int(form.data["category"]), userId=current_user.id )
+        deck = Deck(title=form.data["title"], categoryId=int(form.data["category"]), userId=current_user.id)
         db.session.add(deck)
         db.session.commit()
         return {"deck": deck.to_dict()}
@@ -81,12 +81,12 @@ def delete_deck(id):
 @login_required
 def update_deck(id):
     deck = Deck.query.get(id)
-    cards_in_table = deck.to_dict_with_cards()
+    cards_in_table = deck.to_dict_card_check()
     form = CardForm()
     form["csrf_token"].data = request.cookies["csrf_token"]
     data = request.json
 
-    if deck.userId == current_user.id and form.validate_on_submit():
+    if deck.userId == current_user.id:
         for card in data["cards"]:
             if int(card["id"]) == 0:
                 card = Card(question=card["question"], answer=card["answer"])
@@ -105,6 +105,6 @@ def update_deck(id):
             db.session.delete(card)
             db.session.commit()
 
-        return {"deck": deck.to_dict()}
+        return deck.to_dict_with_cards()
 
     return {"errors": ["Unauthorized"]}

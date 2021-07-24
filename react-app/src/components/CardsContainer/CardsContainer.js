@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import * as cardActions from '../../store/cards'
 
 const CardsContainer = () => {
-  const currentDeck = useSelector(state => state.currentDeck)
+  const cards = useSelector(state => state.cards)
   const [currentCards, setCurrentCards] = useState([])
   const {deckId} = useParams();
   const dispatch = useDispatch();
@@ -17,12 +17,12 @@ const CardsContainer = () => {
 
 
   useEffect(() => {
-    setCurrentCards(currentDeck)
-  }, [currentDeck])
+    setCurrentCards(cards)
+  }, [cards])
 
   return (
     <div id="cards-container-div">
-      {currentDeck.map(card => (
+      {cards.map(card => (
       <div key={card.id} className="whole-card-div">
         <div className="question-div">
           {card.question}

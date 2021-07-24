@@ -1,14 +1,24 @@
-import "./DeckMainHeader.css";
+import './DeckMainHeader.css';
 import logo from "../../images/logo.png";
-import { Link, useParams, useHistory } from "react-router-dom";
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
+import { Link, useParams, useHistory } from "react-router-dom";
+import * as categoryActions from "../../store/categories";
 import * as deckActions from "../../store/decks";
 
+
 const DeckMainHeader = () => {
+  const cards = useSelector((state) => state.cards);
+  const category = useSelector((state) => state.categories.category);
+  const dispatch = useDispatch();
   const { deckId } = useParams();
   const history = useHistory();
-  const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
+
+  useEffect(() => {
+    dispatch(categoryActions.getCategory(deckId));
+  }, [cards]);
+
 
   const deleteUserDeck = (deleteId, userId) => {
     dispatch(deckActions.removeDeck({ deckId: deleteId, userId }));
@@ -21,7 +31,7 @@ const DeckMainHeader = () => {
         <img src={logo} alt="language-logo"></img>
       </div>
       <div id="language-name-div">
-        <h1>Python</h1>
+        <h1>{category?.name ? category.name : "Select a deck"}</h1>
       </div>
       <div id="study-deck-button-div">
         <Link to={`/study-deck-page/${deckId}`}>
