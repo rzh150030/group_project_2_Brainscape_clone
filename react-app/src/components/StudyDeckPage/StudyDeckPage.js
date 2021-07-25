@@ -8,7 +8,7 @@ import { Redirect } from 'react-router-dom'
 
 const StudyDeckPage = () => {
   const page = 'study-deck-page';
-  const currentDeck = useSelector((state) => state.currentDeck)
+  const currentDeck = useSelector((state) => state.cards)
   const [currentCard, setCurrentCard] = useState(0)
 
   let question;
