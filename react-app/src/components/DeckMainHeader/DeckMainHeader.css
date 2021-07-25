@@ -36,6 +36,7 @@
 }
 #delete-deck-button-div {
   grid-area: deletebutton;
+
 }
 .delete-button {
   width: 175px;
