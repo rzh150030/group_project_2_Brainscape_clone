@@ -6,9 +6,8 @@
   grid-template-rows: 1fr 1fr;
   grid-template-areas:
   "langlogo langname quote"
-  "langlogo studybutton quote"
+  "langlogo studybutton deletebutton"
   ;
-  /* border-bottom: 1px solid black; */
 }
 
 #language-logo-div {
@@ -30,13 +29,18 @@
   grid-area: quote;
 }
 
-#study-deck-button-div button{
+.study-button {
   background-color: rgb(94, 212, 16);
   width: 175px;
-  cursor: pointer;
-  border: none;
-  border-radius:15px;
-  letter-spacing: 1px;
-  font-size: 15px;
-  padding: 5px 5px;
+  color: white;
+}
+#delete-deck-button-div {
+  grid-area: deletebutton;
+
+}
+.delete-button {
+  width: 175px;
+  background-color: red;
+  color: white;
+  padding: 9px;
 }
