@@ -10,6 +10,10 @@ def seed_cards():
     Jcard6 = Card(question="What does the unlink() function do?", answer='The unlink() function is dedicated for file system handling. It simply deletes the file given as entry.', deckId=2)
     Jcard7 = Card(question="Which of the following variables is not a predefined variable?", answer='$get', deckId=2)
     Jcard8 = Card(question="How do you call a function named 'myFunction'?", answer='myFunction()', deckId=2)
+    Dcard1 = Card(question="What is Docker Swarm mode?", answer='A swarm is the name of the latest Docker release', deckId=4)
+    Dcard2 = Card(question="You can define and run multiple Docker containers using:", answer='Docker Swarn', deckId=4)
+    Dcard3 = Card(question="How can you monitor Docker in production?", answer='You can use Docker tools such as Docker pin and docker file for monitoring', deckId=4)
+    Dcard4 = Card(question="What are Docker Images?", answer='Docker image is the source of Docker virtualization.', deckId=4)
 
     db.session.add(Jcard1)
     db.session.add(Jcard2)
@@ -19,6 +23,10 @@ def seed_cards():
     db.session.add(Jcard6)
     db.session.add(Jcard7)
     db.session.add(Jcard8)
+    db.session.add(Dcard1)
+    db.session.add(Dcard2)
+    db.session.add(Dcard3)
+    db.session.add(Dcard4)
 
     db.session.commit()
 
