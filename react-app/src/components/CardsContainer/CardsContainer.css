@@ -13,7 +13,6 @@
   grid-template-areas:
     "cardquestion cardanswer"
     ;
-  /* height: 100%; */
   overflow-y: auto;
   margin-bottom: 20px;
 }
