@@ -14,7 +14,7 @@ def seed_cards():
     Dcard2 = Card(question="You can define and run multiple Docker containers using:", answer='Docker Swarn', deckId=4)
     Dcard3 = Card(question="How can you monitor Docker in production?", answer='You can use Docker tools such as Docker pin and docker file for monitoring', deckId=4)
     Dcard4 = Card(question="What are Docker Images?", answer='Docker image is the source of Docker virtualization.', deckId=4)
-    Pcard1 = Card(question="Which of the following is true for a Persistent Cookie?", answer='A persistent cookie is permanently stored in a cookie file on the browser's computer.', deckId=3)
+    Pcard1 = Card(question="Which of the following is true for a Persistent Cookie?", answer="A persistent cookie is permanently stored in a cookie file on the browser's computer.", deckId=3)
     Pcard2 = Card(question="How can we propagate a session id?", answer='You can propagate a session id via cookies or URL parameters.', deckId=3)
 
     db.session.add(Jcard1)
