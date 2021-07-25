@@ -2,9 +2,11 @@ from app.models import db, Card
 
 
 def seed_cards():
-    card1 = Card(question="How to protect special characters in a query string?", answer='urlencode()', deckId=1)
-    card2 = Card(question="Question 2", answer='Answer 2', deckId=1)
-    card3 = Card(question="Question 3", answer='Answer 3', deckId=2)
+    Jcard1 = Card(question="How to protect special characters in a query string?", answer='urlencode()', deckId=1)
+    Jcard2 = Card(question="What is the function to parse a configuration file?", answer='parseini_file()', deckId=1)
+    Jcard3 = Card(question="What is the default session time in PHP?", answer='The default session time in php is until the closing of the browser', deckId=1)
+    Jcard4 = Card(question="Intensity of a color can be described through", answer='Hue', deckId=1)
+    Jcard5 = Card(question="Which cryptographic extension provides generation and verification of digital signatures?", answer='PHP-CloseSSL', deckId=1)
 
     db.session.add(card1)
     db.session.add(card2)
