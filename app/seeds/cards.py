@@ -2,7 +2,7 @@ from app.models import db, Card
 
 
 def seed_cards():
-    card1 = Card(question="Question 1", answer='Answer 1', deckId=1)
+    card1 = Card(question="How to protect special characters in a query string?", answer='urlencode()', deckId=1)
     card2 = Card(question="Question 2", answer='Answer 2', deckId=1)
     card3 = Card(question="Question 3", answer='Answer 3', deckId=2)
 
