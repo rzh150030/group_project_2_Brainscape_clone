@@ -15,6 +15,18 @@ const DeckMainHeader = () => {
   const history = useHistory();
   const sessionUser = useSelector((state) => state.session.user);
 
+
+  // const getInspirationalQuotes = async () => {
+  //   const proxy = "https://aa-ketchup.herokuapp.com/";
+  //   let response = await fetch(proxy + "https://zenquotes.io/api/quotes/");
+
+  //   console.log(response);
+  // }
+
+  // getInspirationalQuotes();
+
+
+
   useEffect(() => {
     dispatch(categoryActions.getCategory(deckId));
   }, [cards]);
