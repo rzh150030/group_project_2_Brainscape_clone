@@ -19,16 +19,15 @@ const DeckMainHeader = () => {
   let max = 30;
   let randomNumber = Math.floor(Math.random() * max);
 
-  let quote;
-  let author;
+  console.log(zenQuotes.length);
+  console.log(zenQuotes);
 
-  if (zenQuotes.length > 1) {
+  let quote = "He who knows how to wait need make no concessions.";
+  let author = "Sigmund Freud";
+
+  if (zenQuotes[5]) {
     quote = zenQuotes[randomNumber]["q"];
     author = zenQuotes[randomNumber]["a"];
-  } else {
-    // initial quote and author values if Zen Quotes is not ready
-    quote = "He who knows how to wait need make no concessions.";
-    author = "Sigmund Freud";
   }
 
 
