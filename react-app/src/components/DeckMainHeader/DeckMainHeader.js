@@ -19,8 +19,8 @@ const DeckMainHeader = () => {
   let max = 30;
   let randomNumber = Math.floor(Math.random() * max);
 
-  console.log(zenQuotes.length);
-  console.log(zenQuotes);
+  // console.log(zenQuotes.length);
+  // console.log(zenQuotes);
 
   let quote = "He who knows how to wait need make no concessions.";
   let author = "Sigmund Freud";
@@ -55,10 +55,10 @@ const DeckMainHeader = () => {
           </Link>
         ) : null}
       </div>
-      <div id="quote-div">
+      {/* <div id="quote-div">
         <div id="actual-quote-div">"{zenQuotes && quote}"</div>
         <div id="actual-author-div">-- {zenQuotes && author}</div>
-      </div>
+      </div> */}
       <div id="delete-deck-button-div">
         <button
           className="nav-button delete-button"
