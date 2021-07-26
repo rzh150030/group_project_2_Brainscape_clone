@@ -14,9 +14,15 @@ import { authenticate } from './store/session';
 import { DecksPage } from './components/DecksPage/DecksPage';
 import StudyDeckPage from './components/StudyDeckPage/StudyDeckPage';
 
+import { getAllZenQuotes } from './store/quotes'
+
+
+
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
+
+  dispatch(getAllZenQuotes());
 
   useEffect(() => {
     (() => {
