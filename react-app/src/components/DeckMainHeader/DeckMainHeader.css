@@ -27,20 +27,25 @@
 
 #quote-div {
   grid-area: quote;
+  overflow-y: auto;
 }
 
 
 #actual-quote-div {
-  font-size: 25px;
+  height: 60px;
+  font-size: 20px;
   margin-bottom: 10px;
+  overflow-y: auto;
 }
 
 #actual-author-div {
-  font-size: 20px;
+  height: 25px;
+  font-size: 15px;
   margin-bottom: 15px;
   display: flex;
   justify-content: flex-end;
   margin-right: 80px;
+  overflow-y: auto;
 }
 
 #study-deck-button-div button{
