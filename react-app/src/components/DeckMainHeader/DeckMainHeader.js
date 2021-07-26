@@ -14,16 +14,22 @@ const DeckMainHeader = () => {
   const { deckId } = useParams();
   const history = useHistory();
   const sessionUser = useSelector((state) => state.session.user);
+  const zenQuotes = useSelector((state) => state.studyQuotes)
 
+  let max = 30;
+  let randomNumber = Math.floor(Math.random() * max);
 
-  // const getInspirationalQuotes = async () => {
-  //   const proxy = "https://aa-ketchup.herokuapp.com/";
-  //   let response = await fetch(proxy + "https://zenquotes.io/api/quotes/");
+  let quote;
+  let author;
 
-  //   console.log(response);
-  // }
-
-  // getInspirationalQuotes();
+  if (zenQuotes.length > 1) {
+    quote = zenQuotes[randomNumber]["q"];
+    author = zenQuotes[randomNumber]["a"];
+  } else {
+    // initial quote and author values if Zen Quotes is not ready
+    quote = "He who knows how to wait need make no concessions.";
+    author = "Sigmund Freud";
+  }
 
 
 
@@ -51,7 +57,12 @@ const DeckMainHeader = () => {
         </Link>
       </div>
       <div id="quote-div">
-        <h1>Quote</h1>
+        <div id="actual-quote-div">
+          "{zenQuotes && quote}"
+        </div>
+        <div id="actual-author-div">
+          -- {zenQuotes && author}
+        </div>
         <button id="" onClick={() => deleteUserDeck(deckId, sessionUser.id)}> Delete Deck</button>
       </div>
     </div>
