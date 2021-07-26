@@ -14,12 +14,27 @@ const DeckMainHeader = () => {
   const { deckId } = useParams();
   const history = useHistory();
   const sessionUser = useSelector((state) => state.session.user);
+  const zenQuotes = useSelector((state) => state.studyQuotes);
+
+  let max = 30;
+  let randomNumber = Math.floor(Math.random() * max);
+
+  // console.log(zenQuotes.length);
+  // console.log(zenQuotes);
+
+  let quote = "He who knows how to wait need make no concessions.";
+  let author = "Sigmund Freud";
+
+  if (zenQuotes[5]) {
+    quote = zenQuotes[randomNumber]["q"];
+    author = zenQuotes[randomNumber]["a"];
+  }
 
   useEffect(() => {
     dispatch(categoryActions.getCategory(deckId));
   }, [cards]);
 
-  useEffect(()=>{},[currentDeck])
+  useEffect(() => {}, [currentDeck]);
   const deleteUserDeck = (deleteId, userId) => {
     dispatch(deckActions.removeDeck({ deckId: deleteId, userId }));
     history.push("/decks-page");
@@ -40,9 +55,10 @@ const DeckMainHeader = () => {
           </Link>
         ) : null}
       </div>
-      <div id="quote-div">
-        <h1>Quote</h1>
-      </div>
+      {/* <div id="quote-div">
+        <div id="actual-quote-div">"{zenQuotes && quote}"</div>
+        <div id="actual-author-div">-- {zenQuotes && author}</div>
+      </div> */}
       <div id="delete-deck-button-div">
         <button
           className="nav-button delete-button"

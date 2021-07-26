@@ -4,12 +4,14 @@ import session from './session'
 import userDecks from './decks'
 import cards from './cards'
 import categories from './categories'
+import studyQuotes from './quotes'
 
 const rootReducer = combineReducers({
   session,
   userDecks,
   cards,
-  categories
+  categories,
+  studyQuotes
 });
 
 
