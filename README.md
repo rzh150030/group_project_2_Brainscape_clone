@@ -56,4 +56,9 @@ Logged in users can create new cards as well as edit and delete existing cards i
 
     return {"errors": ["Unauthorized"]}`
     
-## Studying Decks
+### Studying Decks
+Logged in users are able to study decks they own.
+
+### Future Features
+- Search decks by categories
+- Search bar for searching decks
