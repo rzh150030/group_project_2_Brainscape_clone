@@ -5,7 +5,9 @@
 
 ## Index Links
 [Database Schema](https://github.com/rzh150030/group_project_2_Brainscape_clone/wiki/Database-Schema)
+
 [MVP Features List](https://github.com/rzh150030/group_project_2_Brainscape_clone/wiki/MVP-Feature-List)
+
 [User Stories](https://github.com/rzh150030/group_project_2_Brainscape_clone/wiki/User-Stories)
 
 ## Overview
