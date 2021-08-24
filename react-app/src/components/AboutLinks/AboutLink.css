@@ -11,8 +11,22 @@
 }
 
 .authors {
+    position: relative;
     font-family: sans-serif;
     font-weight: normal;
     text-decoration: none;
-    color: black
+    color: black;
+    overflow: hidden;
+    padding-bottom: 5px;
+}
+
+.underline {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0.1em;
+    height: 4px;
+    background-color: #17bdef;
+    z-index: 5;
+    transition: transform 580ms cubic-bezier(0.2, 0.1, 0.15, 1.32);
 }
