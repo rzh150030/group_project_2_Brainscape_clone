@@ -6,7 +6,6 @@ import * as cardActions from '../../store/cards'
 
 const CardsContainer = () => {
   const cards = useSelector(state => state.cards)
-  const [currentCards, setCurrentCards] = useState([])
   const {deckId} = useParams();
   const dispatch = useDispatch();
 
@@ -14,11 +13,6 @@ const CardsContainer = () => {
     const pageLoaded = () => dispatch(cardActions.getDeckCards(deckId));
      if (deckId) pageLoaded();
   }, [deckId, dispatch])
-
-
-  useEffect(() => {
-    setCurrentCards(cards)
-  }, [cards])
 
   return (
     <div id="cards-container-div">
