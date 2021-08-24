@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useDebugValue } from "react";
-import { NavLink, useHistory, Redirect } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { NavLink, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Logo from "./Logo/Logo";
 import SearchBar from "./SearchBar/SearchBar";
@@ -14,7 +14,6 @@ const NavBar = ({ modalToggle }) => {
   const [showModal, setShowModal] = useState(false);
   const [form, setForm] = useState("login");
   const sessionUser = useSelector((state) => state.session.user);
-  const userDecks = useSelector((state) => state.userDecks.decks);
   const history = useHistory();
   const dispatch = useDispatch();
 
