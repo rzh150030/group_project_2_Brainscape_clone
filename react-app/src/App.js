@@ -7,6 +7,7 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import HomePage from './components/HomePage/HomePage'
 import EditDeckPage from './components/EditDeckPage/EditDeckPage';
+import AboutLink from './components/AboutLinks/AboutLink';
 import { authenticate } from './store/session';
 
 import { DecksPage } from './components/DecksPage/DecksPage';
@@ -59,6 +60,7 @@ function App() {
           <StudyDeckPage />
         </ProtectedRoute>
       </Switch>
+      <AboutLink />
     </BrowserRouter>
   );
 }
