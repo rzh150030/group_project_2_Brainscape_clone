@@ -1,5 +1,7 @@
 .about-links {
   background-color: #e6e6e6;
+  margin-top: -15px;
+  padding-top: 5px;
 }
 .author-credits {
     display: flex;
