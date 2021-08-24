@@ -1,10 +1,16 @@
+.about-links {
+  background-color: #e6e6e6;
+}
 .author-credits {
     display: flex;
     justify-content: space-around;
     font-weight: bold;
+    padding-bottom: 15px;
 }
 
 .authors {
     font-family: sans-serif;
     font-weight: normal;
+    text-decoration: none;
+    color: black
 }
