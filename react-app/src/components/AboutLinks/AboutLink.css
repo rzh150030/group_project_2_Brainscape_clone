@@ -1,0 +1,10 @@
+.author-credits {
+    display: flex;
+    justify-content: space-around;
+    font-weight: bold;
+}
+
+.authors {
+    font-family: sans-serif;
+    font-weight: normal;
+}
