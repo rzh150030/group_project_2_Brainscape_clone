@@ -18,3 +18,8 @@
     color: black;
     overflow: hidden;
 }
+
+.authors:hover {
+    border-color: #1d81afec;
+    border-style: solid;
+}
