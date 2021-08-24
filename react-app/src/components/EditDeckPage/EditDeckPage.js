@@ -16,7 +16,7 @@ const EditDeckPage = () => {
       return deck[0].title
     }
   })
-  
+
   const [deck, setDeck] = useState(cards);
   const history = useHistory();
 
@@ -24,7 +24,7 @@ const EditDeckPage = () => {
   useEffect(() => {
     dispatch(getDeckCards(deckId));
     dispatch(getUserDecks(user.id));
-  }, []);
+  }, [deckId, dispatch, user.id]);
 
   useEffect(() => {
     setDeck(cards);
