@@ -1,5 +1,5 @@
 import './CardsContainer.css'
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from 'react-router-dom';
 import * as cardActions from '../../store/cards'

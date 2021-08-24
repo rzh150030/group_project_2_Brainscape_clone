@@ -1,6 +1,6 @@
 import "./DeckMainHeader.css";
 import logo from "../../images/logo.png";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams, useHistory } from "react-router-dom";
 import * as categoryActions from "../../store/categories";
@@ -14,25 +14,10 @@ const DeckMainHeader = () => {
   const { deckId } = useParams();
   const history = useHistory();
   const sessionUser = useSelector((state) => state.session.user);
-  const zenQuotes = useSelector((state) => state.studyQuotes);
-
-  let max = 30;
-  let randomNumber = Math.floor(Math.random() * max);
-
-  // console.log(zenQuotes.length);
-  // console.log(zenQuotes);
-
-  let quote = "He who knows how to wait need make no concessions.";
-  let author = "Sigmund Freud";
-
-  if (zenQuotes[5]) {
-    quote = zenQuotes[randomNumber]["q"];
-    author = zenQuotes[randomNumber]["a"];
-  }
 
   useEffect(() => {
     dispatch(categoryActions.getCategory(deckId));
-  }, [cards]);
+  }, [cards, deckId, dispatch]);
 
   useEffect(() => {}, [currentDeck]);
   const deleteUserDeck = (deleteId, userId) => {
@@ -55,10 +40,6 @@ const DeckMainHeader = () => {
           </Link>
         ) : null}
       </div>
-      {/* <div id="quote-div">
-        <div id="actual-quote-div">"{zenQuotes && quote}"</div>
-        <div id="actual-author-div">-- {zenQuotes && author}</div>
-      </div> */}
       <div id="delete-deck-button-div">
         <button
           className="nav-button delete-button"
