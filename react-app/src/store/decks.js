@@ -1,6 +1,4 @@
 const GET_USER_DECKS = "decks/GET_USER_DECKS";
-const REMOVE_DECK = "decks/REMOVE_DECK";
-const ERROR = "decks/ERROR";
 
 export const getUserDecksAction = (decks) => ({
   type: GET_USER_DECKS,

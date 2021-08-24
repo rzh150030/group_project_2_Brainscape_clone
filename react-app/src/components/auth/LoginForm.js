@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Redirect, useHistory, Link } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import { login } from "../../store/session";
 import "./LoginForm.css";
 import Logo from "../Logo/Logo";
