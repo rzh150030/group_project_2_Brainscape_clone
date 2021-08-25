@@ -25,10 +25,7 @@ const LoginForm = ({ setForm, setShowModal }) => {
   };
 
   const demoLogin = () => {
-    setEmail("demo@aa.io")
-    setPassword("password")
-
-    dispatch(login(email, password))
+    dispatch(login("demo@aa.io", "password"));
   }
 
   const updateEmail = (e) => {

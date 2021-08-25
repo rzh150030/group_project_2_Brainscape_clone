@@ -16,7 +16,9 @@ const DeckMainHeader = () => {
   const sessionUser = useSelector((state) => state.session.user);
 
   useEffect(() => {
-    dispatch(categoryActions.getCategory(deckId));
+    if (deckId) {
+      dispatch(categoryActions.getCategory(deckId));
+    }
   }, [cards, deckId, dispatch]);
 
   useEffect(() => {}, [currentDeck]);
@@ -34,19 +36,19 @@ const DeckMainHeader = () => {
         <h1>{category?.name ? category.name : "Select a deck"}</h1>
       </div>
       <div id="study-deck-button-div">
-        {cards ? (
+        {cards.length ? (
           <Link to={`/study-deck-page/${deckId}`}>
             <button className="nav-button study-button">Study Deck</button>
           </Link>
         ) : null}
       </div>
       <div id="delete-deck-button-div">
-        <button
+        {cards.length ? (<button
           className="nav-button delete-button"
           onClick={() => deleteUserDeck(deckId, sessionUser.id)}
         >
           Delete Deck
-        </button>
+        </button>) : null}
       </div>
     </div>
   );

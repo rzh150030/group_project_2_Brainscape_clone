@@ -21,10 +21,11 @@ function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
 
-  dispatch(getAllZenQuotes());
+
 
   useEffect(() => {
     (() => {
+      dispatch(getAllZenQuotes());
       dispatch(authenticate());
       setLoaded(true);
     })();
