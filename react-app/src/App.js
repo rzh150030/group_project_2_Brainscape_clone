@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import LoginForm from './components/auth/LoginForm';
-import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import HomePage from './components/HomePage/HomePage'
 import EditDeckPage from './components/EditDeckPage/EditDeckPage';
+import AboutLink from './components/AboutLinks/AboutLink';
 import { authenticate } from './store/session';
 
 import { DecksPage } from './components/DecksPage/DecksPage';
@@ -61,6 +60,7 @@ function App() {
           <StudyDeckPage />
         </ProtectedRoute>
       </Switch>
+      <AboutLink />
     </BrowserRouter>
   );
 }

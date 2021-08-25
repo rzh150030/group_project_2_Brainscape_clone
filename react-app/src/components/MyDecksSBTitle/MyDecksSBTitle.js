@@ -1,8 +1,7 @@
 import "./MyDecksSBTitle.css";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import * as deckActions from "../../store/decks";
 import SBDeckTitle from "../SBDeckTitle/SBDeckTitle";
 import Modal from "../Modal";
 import AddDeckModal from "../AddDeckModal/AddDeckModal";

@@ -5,7 +5,7 @@ import * as deckActions from "../../store/decks";
 import "./AddDeckModal.css";
 import Logo from "../Logo/Logo";
 
-const AddDeckModal = ({ setForm, setShowModal }) => {
+const AddDeckModal = ({ setShowModal }) => {
   const [errors, setErrors] = useState([]);
   const [title, setTitle] = useState("");
   const [categoryId, setCategoryId] = useState(1);

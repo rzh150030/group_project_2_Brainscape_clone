@@ -2,7 +2,7 @@ import './StudyDeckPage.css'
 import SideBar from '../SideBar/SideBar'
 import DeckMainHeader from '../DeckMainHeader/DeckMainHeader'
 import { useSelector } from 'react-redux'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Redirect } from 'react-router-dom'
 
 
@@ -55,10 +55,6 @@ const StudyDeckPage = () => {
     const studyCardContainer = document.querySelector(".study-card-div");
     studyCardContainer.classList.toggle("flip");
   }
-
-  // useEffect(() => {
-  //   // console.log(currentCard);
-  // }, [currentCard])
 
   if (currentDeck.length === 0) {
     return <Redirect to="/decks-page" />

@@ -1,4 +1,3 @@
-import {useState, useEffect} from "react"
 import ReactDOM  from "react-dom";
 import { useModal } from "../../context/Modal";
 

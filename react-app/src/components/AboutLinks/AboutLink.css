@@ -1,0 +1,25 @@
+.about-links {
+  background-color: #e6e6e6;
+  margin-top: -15px;
+  padding-top: 5px;
+}
+.author-credits {
+    display: flex;
+    justify-content: space-around;
+    font-weight: bold;
+    padding-bottom: 15px;
+}
+
+.authors {
+    position: relative;
+    font-family: sans-serif;
+    font-weight: normal;
+    text-decoration: none;
+    color: black;
+    overflow: hidden;
+}
+
+.authors:hover {
+    border-color: #1d81afec;
+    border-style: solid;
+}

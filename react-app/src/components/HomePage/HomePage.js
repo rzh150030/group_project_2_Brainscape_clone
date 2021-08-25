@@ -35,7 +35,6 @@ const HomePage = () => {
     background11,
   ];
   const [bgImage, setBgImage] = useState({ url: backgroundsArr[0], index: 0 });
-  const [showing, setShowing] = useState(true);
   const dispatch = useDispatch();
 
   useEffect(() => {
