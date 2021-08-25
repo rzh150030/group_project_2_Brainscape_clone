@@ -1,14 +1,11 @@
 from flask import Blueprint
-from flask_login import login_required
 import requests
 
 quotes_routes = Blueprint('quote', __name__)
 
 
-
 # Grab quotes from Zenquotes
 @quotes_routes.route("/")
-# @login_required
 def get_my_quotes():
     r = requests.get("https://zenquotes.io/api/quotes/")
     # convert plain text response to string
