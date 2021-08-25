@@ -16,7 +16,9 @@ const DeckMainHeader = () => {
   const sessionUser = useSelector((state) => state.session.user);
 
   useEffect(() => {
-    dispatch(categoryActions.getCategory(deckId));
+    if (deckId) {
+      dispatch(categoryActions.getCategory(deckId));
+    }
   }, [cards, deckId, dispatch]);
 
   useEffect(() => {}, [currentDeck]);
