@@ -6,7 +6,7 @@ export const getZenQuotes = (allQuotes) => ({
 });
 
 export const getAllZenQuotes = () => async (dispatch) => {
-  const response = await fetch("/api/quote");
+  const response = await fetch("/api/quote/");
 
   if (response.ok) {
     const jsonData = await response.json();
