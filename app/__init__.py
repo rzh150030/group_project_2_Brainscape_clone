@@ -43,7 +43,7 @@ db.init_app(app)
 Migrate(app, db)
 
 # Application Security
-CORS(app)
+CORS(app, origins=["http://localhost:3000", "https://pbrain-app.herokuapp.com"])
 
 
 # Since we are deploying with Docker and Flask,
