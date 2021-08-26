@@ -52,9 +52,7 @@ const HomePage = () => {
   }, [bgImage]);
 
   const loginDemoUser = () => {
-    const email = "demo@aa.io";
-    const password = "password";
-    dispatch(sessionActions.login(email, password));
+    dispatch(sessionActions.login("demo@aa.io", "password"));
   };
 
   const homePageStyle = {
