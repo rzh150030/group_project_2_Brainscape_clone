@@ -24,8 +24,10 @@ const LoginForm = ({ setForm, setShowModal }) => {
     if(errors.length === 0)setShowModal(false);
   };
 
-  const demoLogin = () => {
+  const demoLogin = (e) => {
+    e.preventDefault();
     dispatch(login("demo@aa.io", "password"));
+    setShowModal(false);
   }
 
   const updateEmail = (e) => {
@@ -97,7 +99,7 @@ const LoginForm = ({ setForm, setShowModal }) => {
         <button type="submit">Login</button>
       </div>
       <div id="demo-button-div">
-        <button onClick={demoLogin} type="submit">Demo</button>
+        <button onClick={demoLogin}>Demo</button>
       </div>
     </form>
   );
