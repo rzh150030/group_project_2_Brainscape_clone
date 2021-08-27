@@ -23,10 +23,10 @@ const SearchBar = () => {
 
   return (
     <>
-      {/* <div id="search-bar">
+      <div id="search-bar">
         <input type="search" placeholder=" Search for knowledge..."></input>
         <button>Search</button>
-      </div> */}
+      </div>
       <div>
       <div id="quotes-div">
         {'"' + quote + '"'}
