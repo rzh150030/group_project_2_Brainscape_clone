@@ -12,6 +12,7 @@ from .api.deck_routes import deck_routes
 from .api.card_routes import card_routes
 from .api.category_routes import category_routes
 from .api.quotes_routes import quotes_routes
+from .api.search_routes import search_routes
 
 from .seeds import seed_commands
 
@@ -39,6 +40,7 @@ app.register_blueprint(deck_routes, url_prefix='/api/decks')
 app.register_blueprint(card_routes, url_prefix='/api/cards')
 app.register_blueprint(category_routes, url_prefix='/api/categories')
 app.register_blueprint(quotes_routes, url_prefix='/api/quote')
+app.register_blueprint(search_routes, url_prefix='/api/search')
 db.init_app(app)
 Migrate(app, db)
 
