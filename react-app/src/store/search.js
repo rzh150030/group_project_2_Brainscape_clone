@@ -6,6 +6,14 @@ const addResults = (results) => ({
 });
 
 //thunk for getting search results
+export const searchDecks = (name) => async dispatch => {
+    const response = await fetch(`/api/search/${name}`);
+
+    if (response.ok) {
+        const data = await response.json();
+        dispatch(addResults(data.results));
+    }
+}
 
 const initialState = {results: []};
 
