@@ -37,6 +37,7 @@ const DeckMainHeader = () => {
   const checkSession = (e) => {
     if (!sessionUser) { // open login modal
       setShowModal(true);
+      setForm("login");
     }
     else { //direct to study page
       history.push(`/study-deck-page/${deckId}`);
