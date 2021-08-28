@@ -16,7 +16,7 @@ export const searchDecks = (name) => async dispatch => {
     }
 }
 
-const initialState = [];
+const initialState = null;
 
 export default function reducer(state = initialState, action) {
     switch(action.type) {
