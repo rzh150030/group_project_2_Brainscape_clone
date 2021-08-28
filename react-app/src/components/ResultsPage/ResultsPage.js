@@ -1,6 +1,12 @@
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 export default function ResultsPage() {
+    
+
     return (
-        <h1>Results</h1>
+        <div>
+
+        </div>
     )
 }

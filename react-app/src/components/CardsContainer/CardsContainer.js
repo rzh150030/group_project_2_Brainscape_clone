@@ -12,7 +12,7 @@ const CardsContainer = () => {
 
   useEffect(() => {
     const pageLoaded = () => dispatch(cardActions.getDeckCards(deckId));
-     if (deckId) pageLoaded();
+    if (deckId) pageLoaded();
   }, [deckId, dispatch])
 
   return (
