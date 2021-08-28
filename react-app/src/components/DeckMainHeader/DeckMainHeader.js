@@ -1,10 +1,10 @@
 import "./DeckMainHeader.css";
 import logo from "../../images/logo.png";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 import Modal from "../Modal";
-import LoginForm from "./auth/LoginForm";
+import LoginForm from "../auth/LoginForm";
 import * as categoryActions from "../../store/categories";
 import * as deckActions from "../../store/decks";
 
@@ -16,6 +16,7 @@ const DeckMainHeader = () => {
   const history = useHistory();
   const sessionUser = useSelector((state) => state.session.user);
   const [showModal, setShowModal] = useState(false);
+  const [form, setForm] = useState("login");
 
   useEffect(() => {
     if (deckId) {
@@ -28,9 +29,14 @@ const DeckMainHeader = () => {
     history.push("/decks-page");
   };
 
+  const onClose = () => {
+    setShowModal(false);
+    setForm("");
+  };
+
   const checkSession = (e) => {
     if (!sessionUser) { // open login modal
-
+      setShowModal(true);
     }
     else { //direct to study page
       history.push(`/study-deck-page/${deckId}`);
@@ -58,6 +64,11 @@ const DeckMainHeader = () => {
           Delete Deck
         </button>) : null}
       </div>
+      {showModal === true && form === "login" && (
+        <Modal onClose={onClose}>
+          <LoginForm setForm={setForm} setShowModal={setShowModal} />
+        </Modal>
+      )}
     </div>
   );
 };

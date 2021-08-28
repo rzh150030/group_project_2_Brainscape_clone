@@ -26,7 +26,6 @@ const NavBar = ({ modalToggle }) => {
   const showForm = (e) => {
     setForm(e.target.value);
     setShowModal(true);
-    // history.push('/login')
   };
 
   const onClose = () => {
