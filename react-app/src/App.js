@@ -5,9 +5,10 @@ import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
-import HomePage from './components/HomePage/HomePage'
+import HomePage from './components/HomePage/HomePage';
 import EditDeckPage from './components/EditDeckPage/EditDeckPage';
 import AboutLink from './components/AboutLinks/AboutLink';
+import ResultsPage from './components/ResultsPage/ResultsPage';
 import { authenticate } from './store/session';
 
 import { DecksPage } from './components/DecksPage/DecksPage';
@@ -53,6 +54,9 @@ function App() {
         </Route>
         <Route path='/deck-page/:deckId' exact={true}>
           <DecksPage />
+        </Route>
+        <Route path="/search/results" exact={true}>
+          <ResultsPage />
         </Route>
         <ProtectedRoute path="/edit-deck/:deckId" exact={true}>
           <EditDeckPage/>

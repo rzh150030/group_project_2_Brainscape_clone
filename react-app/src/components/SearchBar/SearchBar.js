@@ -21,12 +21,12 @@ const SearchBar = () => {
     author = zenQuotes[randomNumber]["a"];
   }
 
-  const search = (e) => {
+  const search = async (e) => {
     e.preventDefault();
 
-    let searchSuccess = dispatch(searchDecks(searchInput));
+    let searchSuccess = await dispatch(searchDecks(searchInput));
 
-    if (searchSuccess) history.push("/result page here");
+    if (searchSuccess) history.push("/search/results");
   };
 
   const updateSearch = (e) => {
