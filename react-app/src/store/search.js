@@ -12,6 +12,7 @@ export const searchDecks = (name) => async dispatch => {
     if (response.ok) {
         const data = await response.json();
         dispatch(addResults(data.results));
+        return true;
     }
 }
 
