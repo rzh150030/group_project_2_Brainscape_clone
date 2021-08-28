@@ -6,7 +6,7 @@ nav {
   grid-auto-columns: minmax(300px,33vw);
   background-color: #e6e6e6;
   height:100px;
-  position: fixed;
+  /* position: fixed; */
   top: 0;
 }
 

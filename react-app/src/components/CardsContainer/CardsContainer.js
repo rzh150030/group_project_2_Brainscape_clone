@@ -6,13 +6,13 @@ import * as cardActions from '../../store/cards';
 import chooseDeck from "../../images/choosing-doors.jpg";
 
 const CardsContainer = () => {
-  const cards = useSelector(state => state.cards)
+  const cards = useSelector(state => state.cards);
   const {deckId} = useParams();
   const dispatch = useDispatch();
 
   useEffect(() => {
     const pageLoaded = () => dispatch(cardActions.getDeckCards(deckId));
-     if (deckId) pageLoaded();
+    if (deckId) pageLoaded();
   }, [deckId, dispatch])
 
   return (
