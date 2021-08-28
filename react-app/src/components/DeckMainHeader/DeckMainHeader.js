@@ -25,6 +25,15 @@ const DeckMainHeader = () => {
     history.push("/decks-page");
   };
 
+  const checkSession = (e) => {
+    if (!sessionUser) { // open login modal
+      
+    }
+    else { //direct to study page
+      history.push(`/study-deck-page/${deckId}`);
+    }
+  };
+
   return (
     <div id="deck-main-header-div">
       <div id="language-logo-div">
@@ -35,13 +44,11 @@ const DeckMainHeader = () => {
       </div>
       <div id="study-deck-button-div">
         {cards.length ? (
-          <Link to={`/study-deck-page/${deckId}`}>
-            <button className="nav-button study-button">Study Deck</button>
-          </Link>
+          <button className="nav-button study-button" onClick={checkSession}>Study Deck</button>
         ) : null}
       </div>
       <div id="delete-deck-button-div">
-        {cards.length && sessionUser ? (<button
+        {cards.length ? (<button
           className="nav-button delete-button"
           onClick={() => deleteUserDeck(deckId, sessionUser.id)}
         >
