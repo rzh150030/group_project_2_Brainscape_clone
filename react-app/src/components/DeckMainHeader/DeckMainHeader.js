@@ -23,7 +23,7 @@ const DeckMainHeader = () => {
   useEffect(() => {
     if (deckId) {
       dispatch(categoryActions.getCategory(deckId));
-
+      dispatch(deckActions.getCurrentDeck(deckId));
     }
   }, [cards, deckId, dispatch]);
 
@@ -61,7 +61,7 @@ const DeckMainHeader = () => {
         ) : null}
       </div>
       <div id="delete-deck-button-div">
-        {cards.length ? (<button
+        {cards.length && currentDeck.id === sessionUser.id ? (<button
           className="nav-button delete-button"
           onClick={() => deleteUserDeck(deckId, sessionUser.id)}
         >

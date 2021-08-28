@@ -3,7 +3,7 @@ const GET_CURRENT_DECK = "decks/GET_CURRENT_DECK";
 
 export const getUserDecksAction = (decks) => ({
   type: GET_USER_DECKS,
-  payload: { ...decks },
+  payload: decks
 });
 
 const getCurrentDeckAction = (deck) => ({
@@ -60,9 +60,8 @@ const initialState = {currentDeck: null};
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case GET_USER_DECKS:
-      let newState = {...state};
-      newState = action.payload;
-      return newState;
+      let decks = action.payload.decks;
+      return {...state, decks};
     case GET_CURRENT_DECK:
       let newDeckState = {...state};
       newDeckState.currentDeck = action.payload;
