@@ -12,6 +12,7 @@ import * as deckActions from "../../store/decks";
 const DeckMainHeader = () => {
   const cards = useSelector((state) => state.cards);
   const categoryName = useSelector((state) => state.categories.name);
+  const currentDeck = useSelector(state => state.userDecks.currentDeck);
   const dispatch = useDispatch();
   const { deckId } = useParams();
   const history = useHistory();
@@ -22,7 +23,7 @@ const DeckMainHeader = () => {
   useEffect(() => {
     if (deckId) {
       dispatch(categoryActions.getCategory(deckId));
-      
+
     }
   }, [cards, deckId, dispatch]);
 
