@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
+import { useState } from "react";
 import { searchDecks } from '../../store/search';
 import { useHistory } from "react-router-dom";
 import "./SearchBar.css";
@@ -7,6 +8,7 @@ const SearchBar = () => {
   const zenQuotes = useSelector((state) => state.studyQuotes);
   const dispatch = useDispatch();
   const history = useHistory();
+  const [searchInput, setSearchInput] = useState("");
 
   let max = 30;
   let randomNumber = Math.floor(Math.random() * max);
@@ -22,18 +24,20 @@ const SearchBar = () => {
   const search = (e) => {
     e.preventDefault();
 
-    const name = e.target.value;
-    let searchSuccess = dispatch(searchDecks(name));
+    let searchSuccess = dispatch(searchDecks(searchInput));
 
     if (searchSuccess) history.push("/result page here");
   };
 
+  const updateSearch = (e) => {
+    setSearchInput(e.target.value);
+  };
 
   return (
     <>
       <div id="search-bar">
-        <input type="search" placeholder=" Search for knowledge..."></input>
-        <button>Search</button>
+        <input type="search" placeholder=" Search for knowledge..." onChange={updateSearch}></input>
+        <button onClick={search}>Search</button>
       </div>
       <div>
       <div id="quotes-div">
