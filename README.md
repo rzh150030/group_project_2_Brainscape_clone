@@ -59,7 +59,7 @@ Logged in users can create new cards as well as edit and delete existing cards i
     return {"errors": ["Unauthorized"]}`
     
 ### Studying Decks
-Logged in users are able to study decks they own. Developed a custom animation effect in order to perform flipping of cards
+Logged in users are able to study decks they own as well as other decks they find when searching. Developed a custom animation effect in order to perform flipping of cards
 
 ### Future Features
 - Search decks by categories
