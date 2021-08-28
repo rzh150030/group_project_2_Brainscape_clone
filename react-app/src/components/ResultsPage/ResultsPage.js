@@ -1,18 +1,15 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect } from "react-router";
 
 export default function ResultsPage() {
     const results = useSelector(state => state.searchResults);
 
-    useEffect(() => { // if user refresh on results page go back to home
-        if (!results) return <Redirect to="/" />;
-    }, [results])
-
+    if (!results) return <Redirect to="/" />; // if user refresh on results page go back to home
 
     return (
         <div>
-            
+
         </div>
     );
 }
