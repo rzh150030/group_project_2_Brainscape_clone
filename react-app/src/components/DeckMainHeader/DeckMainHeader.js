@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 import Modal from "../Modal";
 import LoginForm from "../auth/LoginForm";
+import SignUpForm from "../auth/SignUpForm";
 import * as categoryActions from "../../store/categories";
 import * as deckActions from "../../store/decks";
 
@@ -68,6 +69,11 @@ const DeckMainHeader = () => {
       {showModal === true && form === "login" && (
         <Modal onClose={onClose}>
           <LoginForm setForm={setForm} setShowModal={setShowModal} />
+        </Modal>
+      )}
+      {showModal === true && form === "signup" && (
+        <Modal onClose={onClose}>
+          <SignUpForm showModal={showModal} setShowModal={setShowModal} />
         </Modal>
       )}
     </div>
