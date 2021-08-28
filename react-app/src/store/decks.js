@@ -1,5 +1,6 @@
 const GET_USER_DECKS = "decks/GET_USER_DECKS";
 const GET_CURRENT_DECK = "decks/GET_CURRENT_DECK";
+const RESET_DECKS = "decks/RESET_DECKS";
 
 export const getUserDecksAction = (decks) => ({
   type: GET_USER_DECKS,
@@ -9,6 +10,10 @@ export const getUserDecksAction = (decks) => ({
 const getCurrentDeckAction = (deck) => ({
   type: GET_CURRENT_DECK,
   payload: deck
+});
+
+export const resetUserDecksAction = () => ({
+  type: RESET_DECKS
 });
 
 export const getCurrentDeck = (deckId) => async dispatch => {
@@ -66,6 +71,10 @@ export default function reducer(state = initialState, action) {
       let newDeckState = {...state};
       newDeckState.currentDeck = action.payload;
       return newDeckState;
+    case RESET_DECKS:
+      let newState = {...state};
+      newState.decks= [];
+      return newState;
     default:
       return state;
   }
