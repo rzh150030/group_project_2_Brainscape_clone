@@ -2,7 +2,9 @@ import "./DeckMainHeader.css";
 import logo from "../../images/logo.png";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
+import Modal from "../Modal";
+import LoginForm from "./auth/LoginForm";
 import * as categoryActions from "../../store/categories";
 import * as deckActions from "../../store/decks";
 
@@ -13,6 +15,7 @@ const DeckMainHeader = () => {
   const { deckId } = useParams();
   const history = useHistory();
   const sessionUser = useSelector((state) => state.session.user);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     if (deckId) {
@@ -27,7 +30,7 @@ const DeckMainHeader = () => {
 
   const checkSession = (e) => {
     if (!sessionUser) { // open login modal
-      
+
     }
     else { //direct to study page
       history.push(`/study-deck-page/${deckId}`);
