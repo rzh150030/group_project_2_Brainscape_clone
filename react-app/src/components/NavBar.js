@@ -9,6 +9,7 @@ import SignUpForm from "./auth/SignUpForm";
 import Modal from "./Modal";
 import "./NavBar.css";
 import * as cardActions from "../store/cards";
+import { resetCategoryAction } from '../store/categories';
 
 const NavBar = ({ modalToggle }) => {
   const [showModal, setShowModal] = useState(false);
@@ -18,6 +19,7 @@ const NavBar = ({ modalToggle }) => {
   const dispatch = useDispatch();
 
   const onMyDecksClick = () => {
+    dispatch(resetCategoryAction());
     dispatch(cardActions.wipeCurrentCards());
   };
 
