@@ -10,7 +10,7 @@ import * as deckActions from "../../store/decks";
 
 const DeckMainHeader = () => {
   const cards = useSelector((state) => state.cards);
-  const category = useSelector((state) => state.categories.category);
+  const categoryName = useSelector((state) => state.categories.name);
   const dispatch = useDispatch();
   const { deckId } = useParams();
   const history = useHistory();
@@ -50,7 +50,7 @@ const DeckMainHeader = () => {
         <img src={logo} alt="language-logo"></img>
       </div>
       <div id="language-name-div">
-        <h1>{category?.name ? category.name : "Select a deck"}</h1>
+        <h1>{categoryName ? categoryName : "Select a deck"}</h1>
       </div>
       <div id="study-deck-button-div">
         {cards.length ? (
