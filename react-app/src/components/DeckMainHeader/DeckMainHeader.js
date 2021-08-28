@@ -22,6 +22,7 @@ const DeckMainHeader = () => {
   useEffect(() => {
     if (deckId) {
       dispatch(categoryActions.getCategory(deckId));
+      
     }
   }, [cards, deckId, dispatch]);
 
