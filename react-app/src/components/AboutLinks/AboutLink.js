@@ -1,8 +1,6 @@
 import "./AboutLink.css";
 
 const AboutLink = () => {
-
-
     return (
         <footer className="about-links">
             <p className="author-credits">Developed by:

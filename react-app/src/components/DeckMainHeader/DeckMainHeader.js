@@ -9,7 +9,6 @@ import * as deckActions from "../../store/decks";
 const DeckMainHeader = () => {
   const cards = useSelector((state) => state.cards);
   const category = useSelector((state) => state.categories.category);
-  const currentDeck = useSelector((state) => state.currentDeck);
   const dispatch = useDispatch();
   const { deckId } = useParams();
   const history = useHistory();
@@ -21,7 +20,6 @@ const DeckMainHeader = () => {
     }
   }, [cards, deckId, dispatch]);
 
-  useEffect(() => {}, [currentDeck]);
   const deleteUserDeck = (deleteId, userId) => {
     dispatch(deckActions.removeDeck({ deckId: deleteId, userId }));
     history.push("/decks-page");
@@ -43,7 +41,7 @@ const DeckMainHeader = () => {
         ) : null}
       </div>
       <div id="delete-deck-button-div">
-        {cards.length ? (<button
+        {cards.length && sessionUser ? (<button
           className="nav-button delete-button"
           onClick={() => deleteUserDeck(deckId, sessionUser.id)}
         >
