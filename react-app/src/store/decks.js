@@ -12,7 +12,7 @@ const getCurrentDeckAction = (deck) => ({
 });
 
 export const getCurrentDeck = (deckId) => async dispatch => {
-  const response = await fetch(`api/decks/${deckId}`);
+  const response = await fetch(`/api/decks/${deckId}`);
 
   if (response.ok) {
     const currentDeck = await response.json();
