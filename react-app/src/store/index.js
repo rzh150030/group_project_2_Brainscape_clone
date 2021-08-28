@@ -5,7 +5,7 @@ import userDecks from './decks';
 import cards from './cards';
 import categories from './categories';
 import studyQuotes from './quotes';
-import search from "./search";
+import searchResults from "./search";
 
 const rootReducer = combineReducers({
   session,
@@ -13,7 +13,7 @@ const rootReducer = combineReducers({
   cards,
   categories,
   studyQuotes,
-  search
+  searchResults
 });
 
 

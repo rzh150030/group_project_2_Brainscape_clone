@@ -16,12 +16,12 @@ export const searchDecks = (name) => async dispatch => {
     }
 }
 
-const initialState = {results: []};
+const initialState = [];
 
 export default function reducer(state = initialState, action) {
     switch(action.type) {
         case GET_DECKS:
-            return {results: action.payload};
+            return action.payload;
         default:
             return state;
     }
