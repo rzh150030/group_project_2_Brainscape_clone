@@ -22,11 +22,11 @@ export default function ResultsPage() {
                 <h1> Results</h1>
             </div>
             <ul>
-                {results.map(result => (
-                    <li key={result.id} className='results-li'>
+                {results.length ? results.map(result => (
+                    <li key={result.id} >
                         <Link to={`/deck-page/${result.id}`}>{result.title}</Link>
                     </li>
-                ))}
+                )) : <h1>No results found</h1>}
             </ul>
         </div>
     );
