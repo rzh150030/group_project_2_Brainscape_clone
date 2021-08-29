@@ -10,11 +10,11 @@ export default function ResultsPage() {
     return (
         <div>
             <ul>
-                {results.map(result => (
+                {results.length ? results.map(result => (
                     <li key={result.id}>
                         <Link to={`/deck-page/${result.id}`}>{result.title}</Link>
                     </li>
-                ))}
+                )) : <h1>No results found</h1>}
             </ul>
         </div>
     );
