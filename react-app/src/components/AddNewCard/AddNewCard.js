@@ -8,7 +8,7 @@ const AddNewCard = ({ deckId }) => {
   return (
     <>
       {sessionUser && (
-        <>
+        <div id='add-new-card-div'>
           <hr></hr>
           <div id="outer-div-add-text" className="outer-div">
             <div id="add-new-card-text">
@@ -22,7 +22,7 @@ const AddNewCard = ({ deckId }) => {
               </Link>
             </div>
           </div>
-        </>
+        </div>
       )}
     </>
   );
