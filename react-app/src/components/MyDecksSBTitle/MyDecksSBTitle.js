@@ -53,7 +53,6 @@ const MyDecksSBTitle = ({ page, modalToggle }) => {
               <AddDeckModal setShowModal={setShowModal} />
             </Modal>
           )}
-          <hr></hr>
         </>
       ) : (
         <>
@@ -62,7 +61,6 @@ const MyDecksSBTitle = ({ page, modalToggle }) => {
               <p>Decks</p>
             </div>
           </div>
-          <hr></hr>
         </>
       )}
       <SBDeckTitle page={page} addDeck={addDeck} />

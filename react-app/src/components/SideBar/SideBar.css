@@ -1,9 +1,11 @@
 #sidebar-div{
   grid-area: sidebar;
+  display: flex;
+  flex-direction: column;
   height: 100%;
   width: 100%;
   background-color: #1B8BBF;
-  padding-top: 100px;
+  padding-top: 10px;
   font-family: sans-serif;
 }
 

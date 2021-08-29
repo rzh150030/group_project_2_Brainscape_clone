@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import * as sessionActions from "../../store/session";
 import background1 from "../../images/pexels-vlada-karpovich-4050296.jpg";
 import background2 from "../../images/pexels-christina-morillo-1181676.jpg";
@@ -16,7 +16,6 @@ import background11 from "../../images/pexels-vlada-karpovich-4050350.jpg";
 
 import Logo from "../Logo/Logo";
 import "./HomePage.css";
-import { useSelector } from "react-redux";
 
 const HomePage = () => {
   const sessionUser = useSelector((state) => state.session.user)
@@ -45,10 +44,11 @@ const HomePage = () => {
           index: bgImage.index + 1,
         });
       else setBgImage({ url: backgroundsArr[0], index: 0 });
-    }, 3000);
+    }, 4000);
     return () => {
       clearInterval(bgInterval);
     };
+    // eslint-disable-next-line
   }, [bgImage]);
 
   const loginDemoUser = () => {
@@ -61,9 +61,10 @@ const HomePage = () => {
     justifyContent: "center",
     color: "white",
     background: `url(${bgImage.url}) center/100% no-repeat `,
-    height: "100%",
-    width: "100%",
+    height: "82vh",
+    width: "100vw",
     transition: "background-image 2s ease-in-out .5s",
+
   };
 
   return (

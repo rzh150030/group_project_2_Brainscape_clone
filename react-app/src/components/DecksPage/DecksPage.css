@@ -1,11 +1,11 @@
 #decks-page-grid-container {
   display: grid;
   grid-template-columns: 1fr 4fr;
-  grid-template-rows: 1fr 4fr;
+  grid-template-rows: 150px 4fr;
   grid-template-areas:
     "sidebar deckheader"
     "sidebar indicards"
     ;
-  height: 100%;
+  min-height: 80vh;
   overflow: hidden;
 }

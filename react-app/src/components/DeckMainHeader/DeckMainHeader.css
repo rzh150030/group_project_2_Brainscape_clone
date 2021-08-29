@@ -1,6 +1,5 @@
 #deck-main-header-div {
   grid-area: deckheader;
-  margin-top: 100px;
   display: grid;
   grid-template-columns: 1fr 4fr 1fr;
   grid-template-rows: 1fr 1fr;
@@ -19,6 +18,7 @@
 
 #language-name-div {
   grid-area: langname;
+  padding: 0 20px;
 }
 
 #study-deck-button-div {

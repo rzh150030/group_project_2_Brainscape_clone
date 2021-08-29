@@ -1,25 +1,30 @@
 .about-links {
+  display: flex;
+  align-items: center;
   background-color: #e6e6e6;
-  margin-top: -15px;
-  padding-top: 5px;
+  padding: 5px;
+  height: 5vh;
+  margin: 0;
 }
 .author-credits {
-    display: flex;
-    justify-content: space-around;
-    font-weight: bold;
-    padding-bottom: 15px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-weight: bold;
+  margin: 0;
+  width: 100%;
 }
 
 .authors {
-    position: relative;
-    font-family: sans-serif;
-    font-weight: normal;
-    text-decoration: none;
-    color: black;
-    overflow: hidden;
+  position: relative;
+  font-family: sans-serif;
+  font-weight: normal;
+  text-decoration: none;
+  color: black;
+  overflow: hidden;
 }
 
 .authors:hover {
-    border-color: #1d81afec;
-    border-style: solid;
+  border-color: #1d81afec;
+  border-style: solid;
 }

@@ -1,16 +1,29 @@
 nav {
   display: grid;
-  width: 100%;
   grid-template-areas:
-    "navbar1 navbar2 navbar3";
+    "navbar1 navbar2 navbar3"
+    "quote quote quote";
   grid-auto-columns: minmax(300px,33vw);
   background-color: #e6e6e6;
-  height:100px;
+  height:10vh;
   /* position: fixed; */
   top: 0;
+  margin: 0;
+  padding: 10px;
+
+}
+#quote-container{
+  grid-area: quote;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50%;
+  padding-top: .5%;
 }
 
-ul {
+
+
+nav ul {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -19,7 +32,7 @@ ul {
   grid-area: navbar3;
 }
 
-li {
+nav li {
   margin: 0 40px;
 }
 

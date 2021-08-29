@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from 'react-router-dom';
 import * as cardActions from '../../store/cards';
-import chooseDeck from "../../images/choosing-doors.jpg";
+import chooseDeck from "../../images/choosing-doors-2.png";
 
 const CardsContainer = () => {
   const cards = useSelector(state => state.cards);
