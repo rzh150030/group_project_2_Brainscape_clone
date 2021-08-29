@@ -1,17 +1,19 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import session from './session'
-import userDecks from './decks'
-import cards from './cards'
-import categories from './categories'
-import studyQuotes from './quotes'
+import session from './session';
+import userDecks from './decks';
+import cards from './cards';
+import categories from './categories';
+import studyQuotes from './quotes';
+import searchResults from "./search";
 
 const rootReducer = combineReducers({
   session,
   userDecks,
   cards,
   categories,
-  studyQuotes
+  studyQuotes,
+  searchResults
 });
 
 

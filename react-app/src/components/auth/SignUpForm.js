@@ -12,7 +12,6 @@ const SignUpForm = ({ showModal, setShowModal }) => {
   const [repeatPassword, setRepeatPassword] = useState("");
   const user = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
-  const signUpButton = document.querySelector("#signup-button");
   useEffect(() => {
     return () => {
       if (!showModal) {

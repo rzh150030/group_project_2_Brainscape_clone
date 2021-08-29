@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import LoginForm from './components/auth/LoginForm';
-import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
-import HomePage from './components/HomePage/HomePage'
+import HomePage from './components/HomePage/HomePage';
 import EditDeckPage from './components/EditDeckPage/EditDeckPage';
+import AboutLink from './components/AboutLinks/AboutLink';
+import ResultsPage from './components/ResultsPage/ResultsPage';
 import { authenticate } from './store/session';
 
 import { DecksPage } from './components/DecksPage/DecksPage';
@@ -22,10 +22,11 @@ function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
 
-  dispatch(getAllZenQuotes());
+
 
   useEffect(() => {
     (() => {
+      dispatch(getAllZenQuotes());
       dispatch(authenticate());
       setLoaded(true);
     })();
@@ -54,6 +55,9 @@ function App() {
         <Route path='/deck-page/:deckId' exact={true}>
           <DecksPage />
         </Route>
+        <Route path="/search/results" exact={true}>
+          <ResultsPage />
+        </Route>
         <ProtectedRoute path="/edit-deck/:deckId" exact={true}>
           <EditDeckPage/>
         </ProtectedRoute>
@@ -61,6 +65,7 @@ function App() {
           <StudyDeckPage />
         </ProtectedRoute>
       </Switch>
+      <AboutLink />
     </BrowserRouter>
   );
 }

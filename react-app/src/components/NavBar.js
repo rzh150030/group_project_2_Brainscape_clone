@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useDebugValue } from "react";
-import { NavLink, useHistory, Redirect } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { NavLink, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Logo from "./Logo/Logo";
 import SearchBar from "./SearchBar/SearchBar";
@@ -9,16 +9,17 @@ import SignUpForm from "./auth/SignUpForm";
 import Modal from "./Modal";
 import "./NavBar.css";
 import * as cardActions from "../store/cards";
+import { resetCategoryAction } from '../store/categories';
 
 const NavBar = ({ modalToggle }) => {
   const [showModal, setShowModal] = useState(false);
   const [form, setForm] = useState("login");
   const sessionUser = useSelector((state) => state.session.user);
-  const userDecks = useSelector((state) => state.userDecks.decks);
   const history = useHistory();
   const dispatch = useDispatch();
 
   const onMyDecksClick = () => {
+    dispatch(resetCategoryAction());
     dispatch(cardActions.wipeCurrentCards());
   };
 
@@ -27,7 +28,6 @@ const NavBar = ({ modalToggle }) => {
   const showForm = (e) => {
     setForm(e.target.value);
     setShowModal(true);
-    // history.push('/login')
   };
 
   const onClose = () => {

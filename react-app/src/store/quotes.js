@@ -6,7 +6,8 @@ export const getZenQuotes = (allQuotes) => ({
 });
 
 export const getAllZenQuotes = () => async (dispatch) => {
-  const response = await fetch("http://localhost:3000/api/quote");
+  // const response = await fetch("https://pbrain-app-staging.herokuapp.com/api/quote/");
+  const response = await fetch("/api/quote/");
 
   if (response.ok) {
     const jsonData = await response.json();

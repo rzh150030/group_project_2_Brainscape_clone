@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Redirect, useHistory, Link } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import { login } from "../../store/session";
 import "./LoginForm.css";
 import Logo from "../Logo/Logo";
@@ -9,7 +9,6 @@ const LoginForm = ({ setForm, setShowModal }) => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [demoUser, setDemoUser] = useState(false);
   const user = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
   const userDecks = useSelector((state) => state.userDecks.decks);
@@ -19,20 +18,16 @@ const LoginForm = ({ setForm, setShowModal }) => {
 
     const data = dispatch(login(email, password));
 
-    console.log(email,password)
-
     if (data) {
       setErrors(data);
     }
     if(errors.length === 0)setShowModal(false);
   };
 
-  const demoLogin = () => {
-    setDemoUser(true)
-    setEmail("demo@aa.io")
-    setPassword("password")
-
-    dispatch(login(email, password))
+  const demoLogin = (e) => {
+    e.preventDefault();
+    dispatch(login("demo@aa.io", "password"));
+    setShowModal(false);
   }
 
   const updateEmail = (e) => {
@@ -104,7 +99,7 @@ const LoginForm = ({ setForm, setShowModal }) => {
         <button type="submit">Login</button>
       </div>
       <div id="demo-button-div">
-        <button onClick={demoLogin} type="submit">Demo</button>
+        <button onClick={demoLogin}>Demo</button>
       </div>
     </form>
   );
