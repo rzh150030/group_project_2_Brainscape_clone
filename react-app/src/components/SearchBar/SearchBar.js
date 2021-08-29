@@ -24,12 +24,21 @@ const SearchBar = () => {
   }, [zenQuotes]);
   const search = async (e) => {
     e.preventDefault();
-
     let searchSuccess = await dispatch(searchDecks(searchInput));
 
     if (searchSuccess) history.push("/search/results");
   };
 
+  const returnSearch = async(e) => {
+    e.preventDefault()
+    if(e.key === 'Enter') {
+      let searchSuccess = await dispatch(searchDecks(searchInput));
+
+      if (searchSuccess) history.push("/search/results");
+    } else {
+      updateSearch(e)
+    }
+  }
   const updateSearch = (e) => {
     setSearchInput(e.target.value);
   };
@@ -40,7 +49,7 @@ const SearchBar = () => {
         <input
           type="search"
           placeholder=" Search for knowledge..."
-          onChange={updateSearch}
+          onKeyUpCapture={returnSearch}
         ></input>
         <button onClick={search}>Search</button>
       </div>

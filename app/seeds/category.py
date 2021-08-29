@@ -2,8 +2,8 @@ from app.models import db, Category
 
 
 def seed_categories():
-    java = Category(name="Java")
-    python = Category(name="Python")
+
+    sql = Category(name="SQL")
     cms = Category(name="CMS")
     dev_ops = Category(name="Dev Ops")
     docker = Category(name="Docker")
@@ -13,8 +13,8 @@ def seed_categories():
     linux = Category(name="Linux")
     php = Category(name="PHP")
 
-    db.session.add(java)
-    db.session.add(python)
+
+    db.session.add(sql)
     db.session.add(cms)
     db.session.add(dev_ops)
     db.session.add(docker)

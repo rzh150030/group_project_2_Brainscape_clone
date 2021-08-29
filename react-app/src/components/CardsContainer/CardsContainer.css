@@ -39,7 +39,8 @@
   border-left: 1px solid black;
 }
 
-#choose-deck-doors {
-  overflow: hidden;
-  margin-top: -80px;
-}
+/* img#choose-deck-doors {
+  object-fit: scale-down;
+  margin-top: -50px;
+  margin-bottom: -130px;
+} */
