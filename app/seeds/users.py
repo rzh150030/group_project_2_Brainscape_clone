@@ -13,6 +13,7 @@ def seed_users():
     bobbie = User(
         username='bobbie', email='bobbie@aa.io', password='password')
 
+    #admin will "own" public cards for search
     db.session.add(admin)
     db.session.add(demo)
     db.session.add(marnie)

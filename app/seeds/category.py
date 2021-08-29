@@ -13,7 +13,6 @@ def seed_categories():
     linux = Category(name="Linux")
     php = Category(name="PHP")
 
-
     db.session.add(sql)
     db.session.add(cms)
     db.session.add(dev_ops)

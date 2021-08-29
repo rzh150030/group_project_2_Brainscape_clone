@@ -6,23 +6,22 @@
     "sidebar deckheader"
     "sidebar indicards"
     ;
-  height: 100%;
+  height: 90%;
   overflow: hidden;
 }
 
 #study-card-container-grid {
   grid-area: indicards;
   display: grid;
-  grid-template-columns: 1fr 11fr 1fr;
+  grid-template-columns: 1fr 9fr 1fr;
   grid-template-areas: "leftbutton main rightbutton";
 }
 
 .study-card-container {
   grid-area: main;
-  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   background-color: white;
 }
@@ -53,11 +52,11 @@
 
 .study-card-div {
   position: absolute;
-  width: 100%;
-  height: 80%;
+  width: 60vw;
+  height: 50vh;
   transform-style: preserve-3d;
   transition: all 0.5s ease;
-  margin-bottom: 91px;
+  margin-top: 45px;
 }
 
 .study-card-div.flip {
@@ -76,6 +75,10 @@
   align-items: center;
   font-size: 60px;
 }
+.the-front p,
+.the-back p{
+  padding: 10%;
+}
 
 .the-back {
   position: absolute;
@@ -89,6 +92,8 @@
   align-items: center;
   font-size: 40px;
   transform: rotateY(180deg);
+
+
 }
 
 #flip-button-div {

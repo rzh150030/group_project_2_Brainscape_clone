@@ -33,7 +33,7 @@ div#results-container ul {
 }
 
 div#results-container li.results-li{
-  padding: 0 20px;
+  padding: 10px 20px;
 }
 div#results-container li.results-li a{
   font-size: 25px;
