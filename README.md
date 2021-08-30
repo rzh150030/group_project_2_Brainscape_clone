@@ -24,7 +24,7 @@ PBrain is a clone of Brainscape where users can create decks on topics related t
 
 ## Current Features
 ### Create and Deletion of Decks
-Logged in users are able to create their own deck of flashcards based on a single subject of computer science and fill them with questions and answers. Cards can be made through decks that the users own.
+Logged in users are able to create their own deck of flashcards based on a single subject of computer science and fill them with questions and answers. Cards can be made through decks that the users own. Logged in users can create and delete their own decks but not other users.
 
 ### Create, Update, and Deletion of Cards
 Logged in users can create new cards as well as edit and delete existing cards in a deck. All cards are displayed in a single form and users can edit, create, or delete multiple cards on the form. This was accomplished through the development of a custom logic handling in the backend and formatting frontend data to be suitable for the backend logic. All CRUD functionality for cards was handled in the deck PATCH route.
@@ -59,8 +59,10 @@ Logged in users can create new cards as well as edit and delete existing cards i
     return {"errors": ["Unauthorized"]}`
     
 ### Studying Decks
-Logged in users are able to study decks they own. Developed a custom animation effect in order to perform flipping of cards
+Logged in users are able to study decks they own as well as other users' decks they find through the search bar. Developed a custom animation effect in order to perform flipping of cards.
+
+### Search For Decks
+All users can search for decks by name via search bar. The search feature will attempt to match user inputs in the backend and send to the frontend data that match. Frontend will render a results page with at least one matching link or a "no results" page. Unauthenticated users will be prompted to log in if they attempt to study decks. Deletion button will be hidden from users that do not own the deck.
 
 ### Future Features
 - Search decks by categories
-- Search bar for searching decks
