@@ -67,16 +67,15 @@ const AddDeckModal = ({ setShowModal }) => {
             value={categoryId}
             onChange={updateCategoryId}
           >
-            <option value={1}>Java</option>
-            <option value={2}>Python</option>
-            <option value={3}>CMS</option>
-            <option value={4}>DevOps</option>
-            <option value={5}>Docker</option>
-            <option value={6}>Html</option>
-            <option value={7}>JavaScript</option>
-            <option value={8}>Kubernetes</option>
-            <option value={9}>Linux</option>
-            <option value={10}>PHP</option>
+            <option value={1}>SQL</option>
+            <option value={2}>CMS</option>
+            <option value={3}>Dev Ops</option>
+            <option value={4}>Docker</option>
+            <option value={5}>HTML</option>
+            <option value={6}>JavaScript</option>
+            <option value={7}>Kubernetes</option>
+            <option value={8}>Linux</option>
+            <option value={9}>PHP</option>
           </select>
         </div>
       </div>
