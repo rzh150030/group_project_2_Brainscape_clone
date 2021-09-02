@@ -23,8 +23,6 @@ const NavBar = ({ modalToggle }) => {
     dispatch(cardActions.wipeCurrentCards());
   };
 
-  useEffect(() => {}, []);
-
   const showForm = (e) => {
     setForm(e.target.value);
     setShowModal(true);
