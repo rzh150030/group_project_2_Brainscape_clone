@@ -61,7 +61,7 @@ const DeckMainHeader = () => {
         ) : null}
       </div>
       <div id="delete-deck-button-div">
-        {cards.length && currentDeck?.userId === sessionUser?.id ? (<button
+        {deckId && currentDeck?.userId === sessionUser?.id ? (<button
           className="nav-button delete-button"
           onClick={() => deleteUserDeck(deckId, sessionUser.id)}
         >
