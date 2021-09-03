@@ -41,8 +41,8 @@
 }
 
 #previous-card-button-div button, #next-card-button-div button {
-  border-radius: 15px;
-  height: 40px;
+  border-radius: 10px;
+  height: 50px;
   width: 50px;
   font-weight: bold;
   letter-spacing: 1px;
@@ -53,10 +53,12 @@
 .study-card-div {
   position: absolute;
   width: 60vw;
-  height: 50vh;
+  height: 55vh;
   transform-style: preserve-3d;
-  transition: all 0.5s ease;
-  margin-top: 45px;
+  transition: all 0.5s ease ;
+  margin-top: 15px;
+
+
 }
 
 .study-card-div.flip {
@@ -74,6 +76,8 @@
   justify-content: center;
   align-items: center;
   font-size: 60px;
+  padding: 20px;
+  border-radius: .5rem;
 }
 .the-front p,
 .the-back p{
@@ -92,14 +96,13 @@
   align-items: center;
   font-size: 40px;
   transform: rotateY(180deg);
-
-
+  border-radius: .5rem;
+  padding: 20px;
 }
 
 #flip-button-div {
   position: absolute;
-  /* bottom: 4rem; */
-  bottom: 45px;
+  bottom: 0;
   width: 70%;
   height: 50px;
 }
