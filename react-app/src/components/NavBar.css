@@ -28,12 +28,12 @@ nav ul {
   justify-content: flex-end;
   align-items: center;
   list-style: none;
-  padding: 0 50px;
+  padding: 0 10%;
   grid-area: navbar3;
 }
 
 nav li {
-  margin: 0 40px;
+  margin: 0 1%;
 }
 
 #search-bar {
