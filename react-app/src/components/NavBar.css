@@ -3,7 +3,7 @@ nav {
   grid-template-areas:
     "navbar1 navbar2 navbar3"
     "quote quote quote";
-  grid-auto-columns: minmax(300px,33vw);
+  grid-auto-columns: 33vw 33vw 33vw;
   background-color: #e6e6e6;
   height:10vh;
   /* position: fixed; */
@@ -65,7 +65,8 @@ nav li {
 }
 
 .nav-button {
-  width: 110px;
+  max-width: 8vw;
+  min-width: 80px;
   cursor: pointer;
   border: none;
   border-radius:15px;
