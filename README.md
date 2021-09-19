@@ -64,5 +64,3 @@ Logged in users are able to study decks they own as well as other users' decks t
 ### Search For Decks
 All users can search for decks by name via search bar. The search feature will attempt to match user inputs in the backend and send to the frontend data that match. Frontend will render a results page with at least one matching link or a "no results" page. Unauthenticated users will be prompted to log in if they attempt to study decks. Deletion button will be hidden from users that do not own the deck.
 
-### Future Features
-- Search decks by categories
