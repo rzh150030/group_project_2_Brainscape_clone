@@ -7,23 +7,15 @@ import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 
 const SideBar = ({page}) => {
-  const userOwnsDeck = false;
   const { deckId } = useParams();
-  const userDecks = useSelector(state => state.userDecks.decks);
-
-  useEffect(() => {
-    for (let deck of userDecks) {
-      if (deck.id === deckId) {
-        userOwnsDeck = true;
-      }
-    }
-  }, [])
+  const currentDeck = useSelector(state => state.userDecks.currentDeck);
+  const sessionUser = useSelector(state => state.session.user);
 
   return (
     <div id="sidebar-div">
       <ProfileLogo />
       <MyDecksSBTitle page={page}/>
-      {deckId && userOwnsDeck && <AddNewCard deckId={deckId}/>}
+      {deckId && currentDeck?.userId === sessionUser?.id && <AddNewCard deckId={deckId}/>}
     </div>
   );
 }
