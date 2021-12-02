@@ -4,7 +4,6 @@ import MyDecksSBTitle from '../MyDecksSBTitle/MyDecksSBTitle'
 import AddNewCard from '../AddNewCard/AddNewCard';
 import { useParams } from 'react-router-dom';
 import { useSelector } from "react-redux";
-import { useEffect, useState } from "react";
 
 const SideBar = ({page}) => {
   const { deckId } = useParams();
